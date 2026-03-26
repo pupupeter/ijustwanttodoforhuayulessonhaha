@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Environment variables
+.env
+.env.local
+
+# Excel data files (large binary files)
+*.xlsx
+*.xls
+
+# Flask session / cache
+flask_session/
+*.db
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log

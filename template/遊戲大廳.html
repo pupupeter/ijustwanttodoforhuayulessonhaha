@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>華語知識王 - Matchmaking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#ec5b13",
+                    "background-light": "#f8f6f6",
+                    "background-dark": "#221610",
+                },
+                fontFamily: { "display": ["Plus Jakarta Sans", "sans-serif"] },
+                borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+            },
+        },
+    }
+</script>
+<style>
+    body { min-height: max(884px, 100dvh); }
+    .pulse-ring {
+        animation: pulseRing 1.5s ease-out infinite;
+    }
+    @keyframes pulseRing {
+        0% { transform: scale(0.8); opacity: 1; }
+        100% { transform: scale(1.6); opacity: 0; }
+    }
+    .progress-bar { transition: width 0.3s ease; }
+    .opponent-enter { animation: slideIn 0.5s ease-out; }
+    @keyframes slideIn {
+        from { transform: scale(0.5); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+    .found-flash { animation: flash 0.3s ease-out 3; }
+    @keyframes flash {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
+    }
+</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto">
+
+<!-- Top Header -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 justify-between sticky top-0 z-10 border-b border-primary/10">
+    <a href="/" class="text-primary flex size-12 shrink-0 items-center justify-start cursor-pointer">
+        <span class="material-symbols-outlined text-3xl">arrow_back</span>
+    </a>
+    <h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 text-center">華語知識王</h2>
+    <button onclick="showHelp()" class="flex size-12 cursor-pointer items-center justify-center rounded-xl bg-transparent text-primary">
+        <span class="material-symbols-outlined text-2xl">help</span>
+    </button>
+</div>
+
+<!-- ===================== SELECTION VIEW ===================== -->
+<div id="selectionView" class="flex-1 flex flex-col items-center p-6 gap-6">
+
+    <!-- Header -->
+    <div class="text-center pt-2">
+        <h1 class="text-2xl font-black text-slate-900 dark:text-slate-100">挑戰設定</h1>
+        <p class="text-sm text-slate-500 mt-1">選擇難度與題目類型後開始配對</p>
+    </div>
+
+    <!-- Level Selection Status Display -->
+    <div class="flex gap-3 w-full">
+        <div class="flex-1 flex flex-col items-center p-3 rounded-xl border-2 border-primary bg-primary/5">
+            <span class="text-xs font-bold text-primary uppercase tracking-wider">Level</span>
+            <span id="displayLevel" class="text-xl font-extrabold text-slate-900 dark:text-slate-100">A1A2</span>
+        </div>
+        <div class="flex-1 flex flex-col items-center p-3 rounded-xl border-2 border-secondary bg-secondary/5">
+            <span class="text-xs font-bold text-secondary uppercase tracking-wider">Category</span>
+            <span id="displayCategory" class="text-xl font-extrabold text-slate-900 dark:text-slate-100">Mixed</span>
+        </div>
+    </div>
+
+    <!-- Difficulty Selection -->
+    <div class="w-full bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+        <p class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wider">難度選擇 Difficulty</p>
+        <div class="flex gap-2">
+            <button onclick="selectLevel('A1A2', this)"
+                class="level-btn flex-1 py-3 px-2 rounded-xl border-2 border-primary bg-primary/5 font-bold text-primary text-center text-sm transition-all">
+                A1A2<br><span class="text-[10px] font-medium opacity-70">Elementary</span>
+            </button>
+            <button onclick="selectLevel('B1B2', this)"
+                class="level-btn flex-1 py-3 px-2 rounded-xl border-2 border-slate-200 dark:border-slate-700 font-bold text-slate-600 dark:text-slate-400 text-center text-sm transition-all hover:border-primary/50">
+                B1B2<br><span class="text-[10px] font-medium opacity-70">Intermediate</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Category Selection -->
+    <div class="w-full bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+        <p class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wider">題目類型 Category</p>
+        <div class="grid grid-cols-3 gap-2">
+            <button onclick="selectCategory('vocabulary', this)"
+                class="cat-btn py-3 px-1 rounded-xl border-2 border-slate-200 dark:border-slate-700 font-bold text-slate-600 dark:text-slate-400 text-center text-xs transition-all hover:border-secondary/50 flex flex-col items-center gap-1">
+                <span class="material-symbols-outlined text-xl">menu_book</span>
+                Vocabulary
+            </button>
+            <button onclick="selectCategory('grammar', this)"
+                class="cat-btn py-3 px-1 rounded-xl border-2 border-slate-200 dark:border-slate-700 font-bold text-slate-600 dark:text-slate-400 text-center text-xs transition-all hover:border-secondary/50 flex flex-col items-center gap-1">
+                <span class="material-symbols-outlined text-xl">rule</span>
+                Grammar
+            </button>
+            <button onclick="selectCategory('mixed', this)"
+                class="cat-btn py-3 px-1 rounded-xl border-2 border-secondary bg-secondary/5 font-bold text-secondary text-center text-xs transition-all flex flex-col items-center gap-1">
+                <span class="material-symbols-outlined text-xl">shuffle</span>
+                Mixed
+            </button>
+        </div>
+    </div>
+
+    <!-- Start Button -->
+    <button onclick="startMatchmaking()"
+        class="w-full py-5 bg-primary text-white font-black text-lg rounded-2xl shadow-lg shadow-primary/30 hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-3 mt-2">
+        <span class="material-symbols-outlined text-2xl">swords</span>
+        開始配對 Start Battle
+    </button>
+
+</div>
+
+<!-- ===================== MATCHMAKING VIEW ===================== -->
+<div id="matchmakingView" class="hidden flex-1 flex flex-col items-center p-6 gap-6">
+
+    <!-- Level & Category Status -->
+    <div class="flex gap-3 w-full">
+        <div class="flex-1 flex flex-col items-center p-3 rounded-xl border-2 border-primary bg-primary/5">
+            <span class="text-xs font-bold text-primary uppercase tracking-wider">Level</span>
+            <span id="matchLevel" class="text-xl font-extrabold">A1A2</span>
+        </div>
+        <div class="flex-1 flex flex-col items-center p-3 rounded-xl border-2 border-secondary bg-secondary/5">
+            <span class="text-xs font-bold text-secondary uppercase tracking-wider">Category</span>
+            <span id="matchCategory" class="text-xl font-extrabold">Mixed</span>
+        </div>
+    </div>
+
+    <!-- Matchmaking Visual -->
+    <div class="w-full flex flex-col items-center gap-8 py-4">
+        <div class="flex w-full items-center justify-around relative">
+            <!-- Player (You) -->
+            <div class="flex flex-col items-center gap-3 z-10">
+                <div class="relative">
+                    <div class="size-24 rounded-full border-4 border-primary p-1 bg-white dark:bg-slate-800 shadow-xl overflow-hidden">
+                        <div class="w-full h-full rounded-full bg-gradient-to-br from-primary to-orange-300 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-white text-4xl">person</span>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] font-black px-3 py-0.5 rounded-full uppercase whitespace-nowrap">You</div>
+                </div>
+                <div class="text-center">
+                    <p class="font-bold text-sm">英雄玩家</p>
+                    <p class="text-xs font-medium text-primary">Level 15</p>
+                </div>
+            </div>
+
+            <!-- VS -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                <div class="size-14 rounded-full bg-primary flex items-center justify-center shadow-lg border-4 border-background-light">
+                    <span class="text-xl font-black italic text-white">VS</span>
+                </div>
+            </div>
+
+            <!-- Opponent -->
+            <div id="opponentSlot" class="flex flex-col items-center gap-3 z-10">
+                <!-- Searching state -->
+                <div id="searchingAvatar" class="relative">
+                    <div class="size-24 rounded-full border-4 border-dashed border-slate-300 p-1 bg-slate-100 dark:bg-slate-900 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-4xl text-slate-400 animate-pulse">person_search</span>
+                    </div>
+                    <div class="absolute inset-0 rounded-full border-4 border-primary/30 pulse-ring"></div>
+                </div>
+                <div id="searchingText" class="text-center">
+                    <p class="font-bold text-sm text-slate-400">Searching...</p>
+                    <p class="text-xs text-slate-400" id="waitTime">Rating 1200+</p>
+                </div>
+
+                <!-- Found state (hidden initially) -->
+                <div id="foundAvatar" class="relative hidden opponent-enter">
+                    <div class="size-24 rounded-full border-4 border-slate-500 p-1 bg-white dark:bg-slate-800 shadow-xl overflow-hidden">
+                        <div class="w-full h-full rounded-full bg-gradient-to-br from-slate-500 to-slate-700 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-white text-4xl">smart_toy</span>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-slate-600 text-white text-[10px] font-black px-2 py-0.5 rounded-full uppercase whitespace-nowrap">BOT</div>
+                </div>
+                <div id="foundText" class="text-center hidden">
+                    <p id="botName" class="font-bold text-sm"></p>
+                    <p id="botLevel" class="text-xs font-medium text-slate-500"></p>
+                </div>
+            </div>
+
+            <!-- Connection line -->
+            <div class="absolute top-12 w-full h-1 bg-gradient-to-r from-primary/40 via-primary to-primary/40 rounded-full -z-0"></div>
+        </div>
+
+        <!-- Status -->
+        <div class="w-full space-y-3 text-center">
+            <h2 id="statusText" class="text-xl font-black text-slate-900 dark:text-slate-100">配對中... Finding Opponent</h2>
+            <p id="statusSub" class="text-slate-500 text-sm font-medium">預計等待 <span class="text-primary font-bold" id="countdown">3</span> 秒</p>
+            <div class="w-full h-3 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                <div id="progressBar" class="h-full bg-primary rounded-full shadow-[0_0_10px_rgba(236,91,19,0.5)] progress-bar" style="width:0%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cancel -->
+    <button onclick="cancelMatchmaking()"
+        class="w-full py-4 bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-slate-300 transition-colors">
+        <span class="material-symbols-outlined">close</span>
+        Cancel Matchmaking
+    </button>
+
+</div>
+
+<!-- Bottom Navigation Bar -->
+<div class="flex gap-2 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pb-6 pt-3 sticky bottom-0">
+    <a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400" href="/">
+        <span class="material-symbols-outlined">home</span>
+        <p class="text-[10px] font-bold uppercase">Home</p>
+    </a>
+    <a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary" href="/lobby">
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">swords</span>
+        <p class="text-[10px] font-bold uppercase">Battle</p>
+    </a>
+    <a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400" href="#">
+        <span class="material-symbols-outlined">leaderboard</span>
+        <p class="text-[10px] font-bold uppercase">Rank</p>
+    </a>
+    <a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400" href="/settings">
+        <span class="material-symbols-outlined">person</span>
+        <p class="text-[10px] font-bold uppercase">Profile</p>
+    </a>
+</div>
+</div>
+
+<script>
+    // ── State ──────────────────────────────────────────
+    let selectedLevel = 'A1A2';
+    let selectedCategory = 'mixed';
+    let matchmakingTimer = null;
+
+    const categoryLabels = {
+        vocabulary: 'Vocabulary',
+        grammar: 'Grammar',
+        mixed: 'Mixed'
+    };
+
+    const botNames = [
+        '小明 (Xiaoming)', '語言達人 Pro', 'MeiMei 妹妹',
+        '台灣通 Master', '小龍 (Xiaolong)', 'TaipeiPro 88',
+        '普通話王', 'LinguaBot 語', 'DragonLearner'
+    ];
+    const botLevels = ['Level 8', 'Level 11', 'Level 14', 'Level 17', 'Level 9', 'Level 20', 'Level 6'];
+
+    // ── Selection helpers ──────────────────────────────
+    function selectLevel(level, btn) {
+        selectedLevel = level;
+        document.getElementById('displayLevel').textContent = level;
+        document.querySelectorAll('.level-btn').forEach(b => {
+            b.className = b.className
+                .replace('border-primary bg-primary/5 text-primary', '')
+                .replace('border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400', '');
+            b.classList.add('border-slate-200', 'dark:border-slate-700', 'text-slate-600', 'dark:text-slate-400');
+        });
+        btn.classList.remove('border-slate-200', 'dark:border-slate-700', 'text-slate-600', 'dark:text-slate-400');
+        btn.classList.add('border-primary', 'bg-primary/5', 'text-primary');
+    }
+
+    function selectCategory(cat, btn) {
+        selectedCategory = cat;
+        document.getElementById('displayCategory').textContent = categoryLabels[cat];
+        document.querySelectorAll('.cat-btn').forEach(b => {
+            b.classList.remove('border-secondary', 'bg-secondary/5', 'text-secondary');
+            b.classList.add('border-slate-200', 'dark:border-slate-700', 'text-slate-600', 'dark:text-slate-400');
+        });
+        btn.classList.remove('border-slate-200', 'dark:border-slate-700', 'text-slate-600', 'dark:text-slate-400');
+        btn.classList.add('border-secondary', 'bg-secondary/5', 'text-secondary');
+    }
+
+    // ── Matchmaking ────────────────────────────────────
+    function startMatchmaking() {
+        // Update match display
+        document.getElementById('matchLevel').textContent = selectedLevel;
+        document.getElementById('matchCategory').textContent = categoryLabels[selectedCategory];
+
+        // Switch views
+        document.getElementById('selectionView').classList.add('hidden');
+        document.getElementById('matchmakingView').classList.remove('hidden');
+        document.getElementById('matchmakingView').classList.add('flex');
+
+        // Pick random bot
+        const botName = botNames[Math.floor(Math.random() * botNames.length)];
+        const botLv = botLevels[Math.floor(Math.random() * botLevels.length)];
+        const matchDuration = 2500 + Math.random() * 1500; // 2.5 – 4s
+
+        // Progress bar animation
+        const bar = document.getElementById('progressBar');
+        let progress = 0;
+        const countdownEl = document.getElementById('countdown');
+        let remaining = Math.ceil(matchDuration / 1000);
+        countdownEl.textContent = remaining;
+
+        const tick = setInterval(() => {
+            progress += 2;
+            bar.style.width = Math.min(progress, 95) + '%';
+            remaining = Math.max(0, remaining - 1);
+            countdownEl.textContent = remaining;
+        }, matchDuration / 50);
+
+        // Found opponent
+        matchmakingTimer = setTimeout(() => {
+            clearInterval(tick);
+            bar.style.width = '100%';
+
+            // Show found opponent
+            document.getElementById('searchingAvatar').classList.add('hidden');
+            document.getElementById('searchingText').classList.add('hidden');
+            document.getElementById('foundAvatar').classList.remove('hidden');
+            document.getElementById('foundText').classList.remove('hidden');
+            document.getElementById('botName').textContent = botName;
+            document.getElementById('botLevel').textContent = botLv;
+
+            document.getElementById('statusText').textContent = '✅ 對手找到了！Match Found!';
+            document.getElementById('statusText').classList.add('text-green-600', 'found-flash');
+            document.getElementById('statusSub').textContent = '即將開始遊戲...';
+
+            // Redirect to game
+            matchmakingTimer = setTimeout(() => {
+                window.location.href = `/start_game_lobby?level=${selectedLevel}&category=${selectedCategory}`;
+            }, 1200);
+        }, matchDuration);
+    }
+
+    function cancelMatchmaking() {
+        if (matchmakingTimer) clearTimeout(matchmakingTimer);
+        // Reset to selection view
+        document.getElementById('matchmakingView').classList.add('hidden');
+        document.getElementById('matchmakingView').classList.remove('flex');
+        document.getElementById('selectionView').classList.remove('hidden');
+        document.getElementById('progressBar').style.width = '0%';
+        document.getElementById('searchingAvatar').classList.remove('hidden');
+        document.getElementById('searchingText').classList.remove('hidden');
+        document.getElementById('foundAvatar').classList.add('hidden');
+        document.getElementById('foundText').classList.add('hidden');
+        document.getElementById('statusText').textContent = '配對中... Finding Opponent';
+        document.getElementById('statusText').classList.remove('text-green-600', 'found-flash');
+        document.getElementById('countdown').textContent = '3';
+    }
+
+    function showHelp() {
+        alert('遊戲規則 Game Rules：\n\n🎯 選擇難度：A1A2（初級）或 B1B2（中級）\n📚 選擇類型：詞彙 / 語法 / 混合\n⚔️ 系統自動配對對手\n❓ 每局 5 題，答對得分\n🏆 答完後查看成績！');
+    }
+</script>
+</body></html>

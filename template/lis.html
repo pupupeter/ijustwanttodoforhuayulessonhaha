@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed-variant": "#7f2b00",
+              "secondary-dim": "#833b00",
+              "on-secondary-fixed": "#115e59",
+              "tertiary": "#3b82f6",
+              "on-secondary-container": "#115e59",
+              "surface-container-low": "#f8f6f6",
+              "tertiary-container": "#dbeafe",
+              "inverse-surface": "#1e293b",
+              "surface-tint": "#ec5b13",
+              "outline-variant": "#cbd5e1",
+              "on-tertiary-fixed-variant": "#1e3a8a",
+              "error-dim": "#9f0519",
+              "primary-dim": "#8e3000",
+              "on-tertiary-container": "#1e40af",
+              "primary-fixed": "#ffdbce",
+              "surface-bright": "#ffffff",
+              "primary-container": "#ffedd5",
+              "inverse-on-surface": "#f8fafc",
+              "on-secondary-fixed-variant": "#134e4a",
+              "tertiary-fixed": "#dbeafe",
+              "tertiary-fixed-dim": "#bfdbfe",
+              "on-surface": "#0f172a",
+              "primary": "#ec5b13",
+              "surface-container-highest": "#e0e0e0",
+              "on-primary-fixed": "#370e00",
+              "surface-container-lowest": "#ffffff",
+              "on-surface-variant": "#475569",
+              "inverse-primary": "#ffb599",
+              "on-primary": "#ffffff",
+              "surface-container-high": "#e8e8e8",
+              "on-tertiary-fixed": "#1e40af",
+              "error": "#ef4444",
+              "surface": "#ffffff",
+              "secondary": "#0d9488",
+              "on-primary-container": "#7c2d12",
+              "surface-dim": "#f8f6f6",
+              "secondary-fixed": "#ccfbf1",
+              "on-secondary": "#ffffff",
+              "surface-variant": "#f1f5f9",
+              "primary-fixed-dim": "#ffb599",
+              "on-error": "#ffffff",
+              "on-background": "#0f172a",
+              "on-error-container": "#991b1b",
+              "secondary-fixed-dim": "#99f6e4",
+              "secondary-container": "#ccfbf1",
+              "background": "#f8f6f6",
+              "surface-container": "#f1f1f1",
+              "error-container": "#fee2e2",
+              "outline": "#e2e8f0"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .waveform-bar {
+            @apply bg-primary rounded-full;
+            width: 3px;
+            transition: height 0.3s ease;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body text-on-background min-h-screen flex flex-col">
+<header class="bg-white dark:bg-slate-950 text-orange-600 dark:text-orange-500 font-['Plus_Jakarta_Sans'] font-bold rounded-b-lg border-b border-slate-100 dark:border-slate-800 shadow-sm flex justify-between items-center px-4 h-16 w-full sticky top-0 z-50">
+<div class="flex items-center gap-3">
+<a href="{% if session.get('last_topic') %}/topic/{{ session.get('last_topic') }}{% else %}/{% endif %}" class="transition-transform active:scale-95 p-2 rounded-full hover:bg-slate-50">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</a>
+<h1 class="text-xl font-black text-orange-600 dark:text-orange-500 tracking-tight">Mandarin Pulse</h1>
+</div>
+<div class="flex items-center gap-4">
+<a href="/settings" class="p-2 rounded-full hover:bg-slate-50">
+<span class="material-symbols-outlined text-slate-500">settings</span>
+</a>
+<div class="flex items-center gap-1 bg-orange-50 px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-orange-600 text-sm" style="font-variation-settings: 'FILL' 1;">timer</span>
+<span class="text-orange-600 font-bold text-sm">08s</span>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden border-2 border-primary/20">
+<img class="w-full h-full object-cover" data-alt="User profile avatar icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvk4r1IWiHLvvxm7TO5hcnQLwg1PbqizhNTeN2SrcogKCLHibdg_j4NQha97VhDaRZZW28L4OBoCqSo77FyvfZ2z0xcF0FwyAr0ouwowxsDNZCsEJ0Bey9DtbAJOe7zkMOh1HYMoPhGR2cGqgrFZpVC2Cda7MAc-QxHiEixpiPn4HnWvDV5-sG3FKL2uDzt7DFzXnDb-gY0vVC8jwW8XtfulbTMgggCml8l5pQvL83Gz1UfGfonpWRIaNbfNx7jwUtTHMewsrAhucZ"/>
+</div>
+</div>
+</header>
+<main class="flex-1 max-w-2xl mx-auto w-full p-4 md:p-6 mb-24">
+<div class="mb-8">
+<div class="flex justify-between items-end mb-4">
+<div>
+<span class="text-[10px] font-bold tracking-[0.2em] uppercase text-secondary mb-1 block">TOCFL Challenge</span>
+<h2 class="text-2xl font-black text-on-surface">聽力測驗</h2>
+</div>
+<div class="text-right">
+<span class="text-xs font-bold text-on-surface-variant">Question {{ current_idx + 1 }} of {{ total }}</span>
+<div class="w-24 h-1.5 bg-slate-200 rounded-full mt-1 overflow-hidden">
+<div class="h-full bg-primary" style="width: {{ ((current_idx + 1) / total) * 100 }}%;"></div>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm font-medium">{{ quiz_type }}</p>
+</div>
+<div class="relative mb-10 overflow-hidden rounded-3xl bg-white shadow-lg p-6 group transition-all active:scale-[0.99] border-l-4 border-primary">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+<div class="relative z-10 flex flex-col items-center">
+<div class="flex items-center justify-center w-20 h-20 bg-primary rounded-full shadow-lg shadow-primary/30 mb-6 cursor-pointer hover:scale-105 transition-transform active:scale-90">
+<span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+<div class="flex items-end justify-center gap-1 h-12 w-full px-4">
+<div class="waveform-bar h-4"></div>
+<div class="waveform-bar h-8"></div>
+<div class="waveform-bar h-12"></div>
+<div class="waveform-bar h-6"></div>
+<div class="waveform-bar h-10"></div>
+<div class="waveform-bar h-7"></div>
+<div class="waveform-bar h-11"></div>
+<div class="waveform-bar h-5"></div>
+<div class="waveform-bar h-9"></div>
+<div class="waveform-bar h-12"></div>
+<div class="waveform-bar h-6"></div>
+<div class="waveform-bar h-10"></div>
+<div class="waveform-bar h-7"></div>
+<div class="waveform-bar h-11"></div>
+<div class="waveform-bar h-4"></div>
+<div class="waveform-bar h-8"></div>
+<div class="waveform-bar h-12"></div>
+<div class="waveform-bar h-6"></div>
+<div class="waveform-bar h-10"></div>
+<div class="waveform-bar h-7"></div>
+</div>
+<div class="mt-4 text-xs font-bold text-slate-400 tracking-widest">{{ question }}</div>
+</div>
+</div>
+<form action="/answer" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+{% for opt in options %}
+<button type="submit" name="answer" value="{{ opt }}" class="group flex items-center p-4 bg-white hover:bg-orange-50 border-2 border-transparent hover:border-primary/30 rounded-2xl shadow-sm transition-all active:scale-[0.97] text-left">
+<div class="w-10 h-10 flex items-center justify-center bg-surface-container rounded-xl font-bold text-on-surface group-hover:bg-primary group-hover:text-white transition-colors mr-4">{{ loop.index0 | int_to_char }}</div>
+<div>
+<p class="text-base font-bold text-on-surface">{{ opt }}</p>
+</div>
+</button>
+{% endfor %}
+</form>
+</main>
+<footer class="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-slate-100 z-50">
+<div class="max-w-2xl mx-auto flex gap-4">
+<button class="flex-1 bg-primary text-white font-bold py-4 rounded-2xl shadow-lg shadow-primary/25 transition-all active:scale-95 flex items-center justify-center gap-2">
+<span>CONFIRM ANSWER</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</footer>
+<nav class="hidden md:flex fixed bottom-8 left-1/2 -translate-x-1/2 bg-white/80 backdrop-blur-md rounded-full px-6 py-3 shadow-xl border border-white/50 items-center gap-8 z-50">
+<div class="flex flex-col items-center justify-center text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-900/20 rounded-xl px-3 py-1 cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="text-xs font-semibold">Study</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-teal-600 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">forum</span>
+<span class="text-xs font-semibold">Dialogue</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-teal-600 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">hearing</span>
+<span class="text-xs font-semibold">Listen</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-teal-600 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">person</span>
+<span class="text-xs font-semibold">Profile</span>
+</div>
+</nav>
+<div class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center h-20 px-4 pb-safe bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800 shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
+<div class="flex flex-col items-center justify-center text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-900/20 rounded-xl px-3 py-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="text-xs font-semibold">Study</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-teal-600 transition-all duration-200">
+<span class="material-symbols-outlined">forum</span>
+<span class="text-xs font-semibold">Dialogue</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-teal-600 transition-all duration-200">
+<span class="material-symbols-outlined">hearing</span>
+<span class="text-xs font-semibold">Listen</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-teal-600 transition-all duration-200">
+<span class="material-symbols-outlined">person</span>
+<span class="text-xs font-semibold">Profile</span>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-TW"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface": "#ffffff",
+              "on-surface": "#0f172a",
+              "surface-container-highest": "#e0e0e0",
+              "on-tertiary": "#ffffff",
+              "tertiary-dim": "#6e4800",
+              "primary-fixed-dim": "#ffb599",
+              "on-tertiary-fixed": "#1e40af",
+              "tertiary-container": "#dbeafe",
+              "on-secondary-fixed-variant": "#134e4a",
+              "on-background": "#0f172a",
+              "surface-container-high": "#e8e8e8",
+              "inverse-on-surface": "#f8fafc",
+              "background": "#f8f6f6",
+              "surface-variant": "#f1f5f9",
+              "surface-tint": "#ec5b13",
+              "error-container": "#fee2e2",
+              "tertiary-fixed": "#dbeafe",
+              "secondary-fixed": "#ccfbf1",
+              "primary-fixed": "#ffdbce",
+              "on-tertiary-fixed-variant": "#1e3a8a",
+              "secondary-dim": "#833b00",
+              "on-primary-fixed-variant": "#7f2b00",
+              "secondary": "#0d9488",
+              "on-primary-fixed": "#370e00",
+              "outline-variant": "#cbd5e1",
+              "on-secondary-container": "#115e59",
+              "on-secondary": "#ffffff",
+              "surface-container": "#f1f1f1",
+              "on-primary": "#ffffff",
+              "on-error-container": "#991b1b",
+              "on-secondary-fixed": "#115e59",
+              "secondary-container": "#ccfbf1",
+              "inverse-primary": "#ffb599",
+              "on-tertiary-container": "#1e40af",
+              "inverse-surface": "#1e293b",
+              "error-dim": "#9f0519",
+              "tertiary": "#3b82f6",
+              "surface-bright": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "outline": "#e2e8f0",
+              "error": "#ef4444",
+              "on-primary-container": "#7c2d12",
+              "on-surface-variant": "#475569",
+              "surface-dim": "#f8f6f6",
+              "primary-dim": "#8e3000",
+              "secondary-fixed-dim": "#99f6e4",
+              "tertiary-fixed-dim": "#bfdbfe",
+              "on-error": "#ffffff",
+              "surface-container-low": "#f8f6f6",
+              "primary-container": "#ffedd5",
+              "primary": "#ec5b13"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-4 h-16 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-3">
+<a href="/" class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-slate-50 dark:hover:bg-slate-800 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">arrow_back</span>
+</a>
+<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
+<img alt="user profile picture" class="w-full h-full object-cover" data-alt="User profile avatar photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACYRGhHm_7XXwBdg4lEd4vtUWwZ-QMB1JPimmkc5T3nm88H9CAzcRs15MXPgAmtVAqAUD7Z5w4XEumPt-dcVvv4fJqNf9azEp0KEjrZqFGF7qFcUJC3tp0KpVsFZ28ZRFcH1_lUyATOYcZT6Ln-K8Tu7VWjK-l9MvAW8JUrTnzPGL9XidwMEkUiCJsYdzoG4UdJDSTgccClD4gm3Lb76YqjroLGzPy4Dw5MNvOTEERyM9mGBh-jB_WfRooHPuwxfVdQU-YP32ls-Lp"/>
+</div>
+<span class="text-xl font-black text-orange-600 dark:text-orange-400">Mandarin Pulse</span>
+</div>
+<button class="material-symbols-outlined text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 p-2 rounded-full active:scale-95 transition-transform">
+            settings
+        </button>
+</header>
+<!-- Content Canvas -->
+<main class="pt-20 px-4 max-w-2xl mx-auto space-y-6">
+<!-- Page Title -->
+<div class="py-4">
+<h1 class="text-2xl font-bold text-on-surface">設定</h1>
+<p class="text-on-surface-variant text-sm mt-1">管理您的帳戶偏好與應用程式設定</p>
+</div>
+<!-- Section: Account Settings -->
+<section class="space-y-3">
+<h2 class="text-xs font-bold uppercase tracking-wider text-on-surface-variant px-2">帳號設定</h2>
+<div class="bg-surface rounded-xl overflow-hidden shadow-sm border border-outline">
+<div class="flex items-center justify-between p-4 hover:bg-surface-variant/50 transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div>
+<p class="font-semibold text-on-surface">個人資料</p>
+<p class="text-xs text-on-surface-variant">管理姓名、頭像與電子郵件</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</div>
+<div class="h-px bg-outline mx-4"></div>
+<div class="flex items-center justify-between p-4 hover:bg-surface-variant/50 transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">security</span>
+</div>
+<div>
+<p class="font-semibold text-on-surface">密碼與安全性</p>
+<p class="text-xs text-on-surface-variant">雙重驗證、密碼變更</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Section: Audio & Visual -->
+<section class="space-y-3">
+<h2 class="text-xs font-bold uppercase tracking-wider text-on-surface-variant px-2">音訊與視覺</h2>
+<div class="bg-surface rounded-xl overflow-hidden shadow-sm border border-outline">
+<div class="flex items-center justify-between p-4">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">volume_up</span>
+</div>
+<p class="font-semibold text-on-surface">音訊效果</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="h-px bg-outline mx-4"></div>
+<div class="flex items-center justify-between p-4">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">music_note</span>
+</div>
+<p class="font-semibold text-on-surface">背景音樂</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="h-px bg-outline mx-4"></div>
+<div class="flex items-center justify-between p-4">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500">
+<span class="material-symbols-outlined">dark_mode</span>
+</div>
+<p class="font-semibold text-on-surface">深色模式</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Section: Language -->
+<section class="space-y-3">
+<h2 class="text-xs font-bold uppercase tracking-wider text-on-surface-variant px-2">語言</h2>
+<div class="bg-surface rounded-xl overflow-hidden shadow-sm border border-outline">
+<div class="flex items-center justify-between p-4 hover:bg-surface-variant/50 transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">language</span>
+</div>
+<div>
+<p class="font-semibold text-on-surface">介面語言</p>
+<p class="text-xs text-on-surface-variant">目前：繁體中文</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant">expand_more</span>
+</div>
+</div>
+</section>
+<!-- Section: About -->
+<section class="space-y-3">
+<h2 class="text-xs font-bold uppercase tracking-wider text-on-surface-variant px-2">關於</h2>
+<div class="bg-surface rounded-xl overflow-hidden shadow-sm border border-outline">
+<div class="flex items-center justify-between p-4 hover:bg-surface-variant/50 transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500">
+<span class="material-symbols-outlined">info</span>
+</div>
+<p class="font-semibold text-on-surface">版本資訊</p>
+</div>
+<span class="text-xs font-bold text-on-surface-variant bg-surface-container px-2 py-1 rounded">v2.4.0</span>
+</div>
+<div class="h-px bg-outline mx-4"></div>
+<div class="flex items-center justify-between p-4 hover:bg-surface-variant/50 transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500">
+<span class="material-symbols-outlined">description</span>
+</div>
+<p class="font-semibold text-on-surface">隱私政策與服務條款</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant">open_in_new</span>
+</div>
+</div>
+</section>
+<!-- Logout Button -->
+<div class="pt-6 pb-12">
+<a href="/logout" class="w-full flex items-center justify-center gap-2 bg-error-container text-on-error-container py-4 rounded-xl font-bold active:scale-[0.98] transition-all border border-error/10">
+<span class="material-symbols-outlined">logout</span>
+                登出
+            </a>
+<p class="text-center text-[10px] text-on-surface-variant mt-4 font-medium uppercase tracking-widest">Mandarin Pulse © 2024</p>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-2 pb-safe h-20 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 shadow-[0_-2px_10px_rgba(0,0,0,0.05)] rounded-t-lg">
+<a href="/" class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-1 active:scale-90 transition-all duration-150">
+<span class="material-symbols-outlined">home</span>
+<span class="font-plus-jakarta text-[10px] font-bold">Home</span>
+</a>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-1 active:scale-90 transition-all duration-150">
+<span class="material-symbols-outlined">emoji_events</span>
+<span class="font-plus-jakarta text-[10px] font-bold">Leagues</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-1 active:scale-90 transition-all duration-150">
+<span class="material-symbols-outlined">group</span>
+<span class="font-plus-jakarta text-[10px] font-bold">Friends</span>
+</div>
+<!-- Active Tab: Profile/Settings -->
+<div class="flex flex-col items-center justify-center bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-2xl px-4 py-1 active:scale-90 transition-all duration-150">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-plus-jakarta text-[10px] font-bold">Profile</span>
+</div>
+</nav>
+</body></html>

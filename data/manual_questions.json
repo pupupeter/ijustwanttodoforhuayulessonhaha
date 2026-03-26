@@ -1,0 +1,72 @@
+{
+  "questions": [
+    {
+      "id": "manual_001",
+      "type": "vocabulary",
+      "level": "A2",
+      "topic": "cuisine",
+      "question": {
+        "text": "請選出「餃子」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {"id": "A", "text": "jiǎo zi", "is_correct": true},
+        {"id": "B", "text": "jiāo zǐ", "is_correct": false},
+        {"id": "C", "text": "jiào zi", "is_correct": false},
+        {"id": "D", "text": "jiǎo zī", "is_correct": false}
+      ],
+      "created_at": "2024-01-10T08:00:00Z"
+    },
+    {
+      "id": "manual_002",
+      "type": "vocabulary",
+      "level": "A2",
+      "topic": "shopping",
+      "question": {
+        "text": "請選出「便宜」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {"id": "A", "text": "biàn yí", "is_correct": false},
+        {"id": "B", "text": "pián yi", "is_correct": true},
+        {"id": "C", "text": "pián yì", "is_correct": false},
+        {"id": "D", "text": "biàn yì", "is_correct": false}
+      ],
+      "created_at": "2024-01-10T08:00:00Z"
+    },
+    {
+      "id": "manual_003",
+      "type": "listening",
+      "level": "A2",
+      "topic": "tourism",
+      "question": {
+        "text": "請聽音檔，選出正確的詞語",
+        "audio_text": "火車站"
+      },
+      "options": [
+        {"id": "A", "text": "火車站", "is_correct": true},
+        {"id": "B", "text": "汽車站", "is_correct": false},
+        {"id": "C", "text": "公車站", "is_correct": false},
+        {"id": "D", "text": "捷運站", "is_correct": false}
+      ],
+      "created_at": "2024-01-10T08:00:00Z"
+    },
+    {
+      "id": "manual_004",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "worklife",
+      "question": {
+        "text": "A: 請問會議幾點開始？\nB: ___________",
+        "audio_text": null
+      },
+      "options": [
+        {"id": "A", "text": "下午兩點在會議室", "is_correct": true},
+        {"id": "B", "text": "我很忙", "is_correct": false},
+        {"id": "C", "text": "謝謝你", "is_correct": false},
+        {"id": "D", "text": "好的再見", "is_correct": false}
+      ],
+      "created_at": "2024-01-10T08:00:00Z"
+    }
+  ]
+}

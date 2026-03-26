@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#ec5b13",
+                "secondary": "#0d9488",
+                "background-light": "#f8f6f6",
+                "background-dark": "#221610",
+              },
+              fontFamily: {
+                "display": ["Plus Jakarta Sans"]
+              },
+              borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+            },
+          },
+        }
+      </script>
+<title>華語知識王 - Mandarin Trivia King</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen w-full flex-col max-w-md mx-auto bg-white dark:bg-slate-900 shadow-xl overflow-x-hidden">
+<header class="flex items-center bg-white dark:bg-slate-900 p-4 pb-2 justify-between sticky top-0 z-10 border-b border-slate-100 dark:border-slate-800">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10">
+<span class="material-symbols-outlined text-primary">school</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 ml-3">華語知識王</h2>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center rounded-xl h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<a href="/settings" class="flex items-center justify-center rounded-xl h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined">settings</span>
+</a>
+</div>
+</header>
+<main class="flex-1 pb-24">
+<div class="p-4">
+<div class="bg-gradient-to-br from-primary to-orange-400 rounded-xl p-6 text-white shadow-lg relative overflow-hidden">
+<div class="relative z-10">
+<div class="flex items-center gap-4 mb-4">
+<div class="bg-white/20 backdrop-blur-md aspect-square rounded-full p-1 border-2 border-white/50">
+<img class="w-16 h-16 rounded-full" data-alt="Playful cartoon avatar for a learner profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1hCiwcP724FiA4Bf8iiWhgH15FqAGbXuXFzsh3JLv38jMrmFU7juLZqmqLkHphf6FaZMHGZ4Nb3rp6fPjfmrhgZpBkzr5AoNn3sJepBMihgbLvORAGkzEe7plHy-9IJYqnYHLeO5UjaBmhkKIxeuIIDUApi0Fcd0i6hvAJLUgUb5SxCK4332NCba30d_Mvd4PuujAGRsSG_EP4VI5q_UfPjHLFZPjyud8eqop5dElNhCHjXY5-xrpYLZ3jDAxi79Q78boMIKqwMhj"/>
+</div>
+<div>
+<h3 class="text-xl font-bold">你好, {{ user_name }}!</h3>
+<div class="flex items-center gap-2 bg-black/10 rounded-full px-3 py-0.5 w-fit mt-1">
+<span class="material-symbols-outlined text-sm">local_fire_department</span>
+<span class="text-sm font-semibold text-white">{{ streak }} Day Streak!</span>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="text-sm font-medium opacity-90 text-white">TOCFL Progress</span>
+<span class="text-lg font-bold text-white">{{ progress }}%</span>
+</div>
+<div class="w-full bg-black/10 rounded-full h-3">
+<div class="bg-white h-full rounded-full shadow-[0_0_10px_rgba(255,255,255,0.5)]" style="width: {{ progress }}%;"></div>
+</div>
+<p class="text-xs font-medium opacity-80 text-white italic">Keep practicing to reach Level B1!</p>
+</div>
+</div>
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-white/10 text-9xl">translate</span>
+</div>
+</div>
+<div class="px-4 py-2">
+<a href="/lobby" class="w-full flex items-center justify-center gap-3 bg-secondary hover:bg-secondary/90 text-white font-bold py-5 rounded-xl shadow-lg transition-transform active:scale-[0.98]">
+<span class="material-symbols-outlined text-3xl">swords</span>
+<div class="text-left">
+<p class="text-lg leading-none">START GAME</p>
+<p class="text-xs opacity-80 font-normal">Challenge the Mandarin Trivia</p>
+</div>
+</a>
+</div>
+<section class="mt-6 px-4">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-slate-900 dark:text-slate-100 font-bold text-lg">Topic Practice</h3>
+<a class="text-primary text-sm font-bold" href="#">View All</a>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<a href="/topic/tourism" class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl border border-blue-100 dark:border-blue-800 group cursor-pointer hover:border-primary transition-colors block">
+<div class="bg-blue-500 text-white w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+<span class="material-symbols-outlined">flight_takeoff</span>
+</div>
+<h4 class="font-bold text-slate-900 dark:text-slate-100">Tourism</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400">Travel &amp; Landmarks</p>
+</a>
+<a href="/topic/shopping" class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-xl border border-emerald-100 dark:border-emerald-800 group cursor-pointer hover:border-primary transition-colors block">
+<div class="bg-emerald-500 text-white w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+<span class="material-symbols-outlined">shopping_bag</span>
+</div>
+<h4 class="font-bold text-slate-900 dark:text-slate-100">Shopping</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400">Markets &amp; Prices</p>
+</a>
+<a href="/topic/cuisine" class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-xl border border-purple-100 dark:border-purple-800 group cursor-pointer hover:border-primary transition-colors block">
+<div class="bg-purple-500 text-white w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<h4 class="font-bold text-slate-900 dark:text-slate-100">Cuisine</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400">Ordering Food</p>
+</a>
+<a href="/topic/worklife" class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-xl border border-amber-100 dark:border-amber-800 group cursor-pointer hover:border-primary transition-colors block">
+<div class="bg-amber-500 text-white w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+<span class="material-symbols-outlined">work</span>
+</div>
+<h4 class="font-bold text-slate-900 dark:text-slate-100">Work Life</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400">Office &amp; Business</p>
+</a>
+</div>
+</section>
+<section class="mt-6 px-4">
+<div class="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4 flex items-center gap-4">
+<div class="bg-primary/20 p-3 rounded-full">
+<span class="material-symbols-outlined text-primary">emoji_events</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-sm">Weekly League: Gold</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400">Ranked #14 • 3 days left</p>
+</div>
+<button class="bg-white dark:bg-slate-700 px-3 py-1 rounded-lg border border-slate-200 dark:border-slate-600 text-xs font-bold">
+                        Join
+                    </button>
+</div>
+</section>
+</main>
+<nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-100 dark:border-slate-800 flex justify-around items-center py-3 px-4 z-20">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined fill-1">home</span>
+<p class="text-[10px] font-bold">Home</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">trophy</span>
+<p class="text-[10px] font-medium">Leagues</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">group</span>
+<p class="text-[10px] font-medium">Friends</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">person</span>
+<p class="text-[10px] font-medium">Profile</p>
+</a>
+</nav>
+</div>
+</body></html>

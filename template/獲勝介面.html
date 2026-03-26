@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden max-w-md mx-auto">
+<!-- Header -->
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="text-slate-900 dark:text-slate-100 flex size-12 shrink-0 items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined">close</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Match Results</h2>
+</div>
+<!-- Hero Section -->
+<div class="flex flex-col items-center justify-center py-8">
+<div class="w-32 h-32 bg-primary/20 rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary text-6xl">emoji_events</span>
+</div>
+<h1 class="text-slate-900 dark:text-slate-100 tracking-tight text-[40px] font-extrabold leading-tight text-center">Victory!</h1>
+<p class="text-primary font-bold text-lg mt-1">華語知識王</p>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 gap-4 p-4 sm:grid-cols-3">
+<div class="flex flex-col gap-2 rounded-xl p-5 bg-white dark:bg-slate-800 shadow-sm border border-slate-100 dark:border-slate-700">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal">Total Points</p>
+<div class="flex items-baseline gap-2">
+<p class="text-slate-900 dark:text-slate-100 tracking-tight text-2xl font-bold leading-tight">+{{ score }}</p>
+</div>
+<div class="flex items-center gap-1 text-green-600 dark:text-green-400 text-sm font-bold">
+<span class="material-symbols-outlined text-sm">smart_toy</span>
+<span>Bot: {{ bot_score }} pts</span>
+</div>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-5 bg-white dark:bg-slate-800 shadow-sm border border-slate-100 dark:border-slate-700">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal">Correct</p>
+<p class="text-slate-900 dark:text-slate-100 tracking-tight text-2xl font-bold leading-tight">{{ correct }} / {{ total }}</p>
+<p class="text-green-600 dark:text-green-400 text-sm font-medium">{{ accuracy }}% accuracy</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-5 bg-white dark:bg-slate-800 shadow-sm border border-slate-100 dark:border-slate-700">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal">Result</p>
+<p class="text-slate-900 dark:text-slate-100 tracking-tight text-2xl font-bold leading-tight">
+    {% if score > bot_score %}🏆 Win{% elif score == bot_score %}🤝 Draw{% else %}😞 Loss{% endif %}
+</p>
+<p class="text-primary text-sm font-medium">{{ "答對較多！" if correct > wrong else "繼續加油！" }}</p>
+</div>
+</div>
+<!-- Review Section -->
+<div class="px-4 pb-3 pt-6 flex items-center justify-between">
+<h2 class="text-slate-900 dark:text-slate-100 text-[22px] font-bold leading-tight tracking-[-0.015em]">Words to Review</h2>
+<span class="text-primary text-sm font-bold cursor-pointer">View All</span>
+</div>
+<div class="flex flex-col gap-2 px-4 pb-24">
+<!-- Review Item 1 -->
+<div class="flex items-center gap-4 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-12">
+<span class="material-symbols-outlined">menu_book</span>
+</div>
+<div class="flex flex-col justify-center flex-1">
+<p class="text-slate-900 dark:text-slate-100 text-base font-bold leading-normal">邂逅 (Xièhòu)</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-tight">To meet by chance; a run-in.</p>
+</div>
+<div class="shrink-0">
+<button class="text-slate-300 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">star</span>
+</button>
+</div>
+</div>
+<!-- Review Item 2 -->
+<div class="flex items-center gap-4 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-12">
+<span class="material-symbols-outlined">translate</span>
+</div>
+<div class="flex flex-col justify-center flex-1">
+<p class="text-slate-900 dark:text-slate-100 text-base font-bold leading-normal">尷尬 (Gāngà)</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-tight">Awkward; embarrassed.</p>
+</div>
+<div class="shrink-0">
+<button class="text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">star</span>
+</button>
+</div>
+</div>
+<!-- Review Item 3 -->
+<div class="flex items-center gap-4 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-12">
+<span class="material-symbols-outlined">history_edu</span>
+</div>
+<div class="flex flex-col justify-center flex-1">
+<p class="text-slate-900 dark:text-slate-100 text-base font-bold leading-normal">淵博 (Yuānbó)</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-tight">Broad and profound knowledge.</p>
+</div>
+<div class="shrink-0">
+<button class="text-slate-300 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">star</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bottom Actions -->
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md max-w-md mx-auto">
+<div class="flex gap-3">
+<button onclick="window.location='/'" class="flex-1 flex items-center justify-center gap-2 bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-100 font-bold py-4 rounded-xl hover:bg-slate-300 dark:hover:bg-slate-600 transition-all">
+<span class="material-symbols-outlined">home</span>
+                    Home
+                </button>
+<button onclick="window.location='/lobby'" class="flex-[2] flex items-center justify-center gap-2 bg-primary text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/30 hover:brightness-110 transition-all">
+<span class="material-symbols-outlined">play_arrow</span>
+                    Play Again
+                </button>
+</div>
+</div>
+</div>
+</body></html>
