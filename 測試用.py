@@ -3,6 +3,8 @@ import pandas as pd
 import random
 import os
 from services.question_service import QuestionService
+from services.content_service import ContentService
+from services.tts_service import TTSService
 
 app = Flask(__name__, template_folder='template', static_folder='static')
 app.secret_key = "super_secret_key_for_mandarin_quiz"
@@ -16,9 +18,11 @@ MANUAL_QUESTIONS_FILE = "data/manual_questions.json"
 df_word = None
 df_grammar = None
 question_service = None
+content_service = None
+tts_service = None
 
 def load_data():
-    global df_word, df_grammar, question_service
+    global df_word, df_grammar, question_service, content_service, tts_service
     try:
         df_word = pd.read_excel(WORD_FILE)
         df_grammar = pd.read_excel(GRAMMAR_FILE)
@@ -30,6 +34,16 @@ def load_data():
         print("✅ QuestionService 初始化成功")
     except Exception as e:
         print(f"❌ QuestionService 初始化失敗：{e}")
+    try:
+        content_service = ContentService("data/practice_content.json")
+        print("✅ ContentService 初始化成功")
+    except Exception as e:
+        print(f"❌ ContentService 初始化失敗：{e}")
+    try:
+        tts_service = TTSService()
+        print("✅ TTSService 初始化成功")
+    except Exception as e:
+        print(f"❌ TTSService 初始化失敗：{e}")
 
 # Jinja2 filter
 @app.template_filter('int_to_char')
@@ -110,6 +124,56 @@ def lobby():
 def settings():
     return render_template('設定.html')
 
+@app.route('/friends')
+def friends():
+    online_friends = [
+        {'name': '小明', 'initial': '明', 'gradient': 'from-blue-400 to-blue-600'},
+        {'name': 'MeiMei', 'initial': 'M', 'gradient': 'from-pink-400 to-rose-500'},
+        {'name': '語言王', 'initial': '王', 'gradient': 'from-purple-400 to-purple-600'},
+    ]
+    friends_list = [
+        {'name': '小明 Xiaoming', 'initial': '明', 'gradient': 'from-blue-400 to-blue-600', 'level': 18, 'score': 12400, 'online': True},
+        {'name': 'MeiMei 妹妹', 'initial': 'M', 'gradient': 'from-pink-400 to-rose-500', 'level': 15, 'score': 9800, 'online': True},
+        {'name': '語言達人 Pro', 'initial': '達', 'gradient': 'from-purple-400 to-purple-600', 'level': 22, 'score': 8500, 'online': False},
+        {'name': 'TaipeiPro 88', 'initial': 'T', 'gradient': 'from-emerald-400 to-teal-500', 'level': 12, 'score': 6200, 'online': False},
+        {'name': '台灣通 Master', 'initial': '台', 'gradient': 'from-amber-400 to-orange-500', 'level': 9, 'score': 4100, 'online': False},
+    ]
+    suggestions = [
+        {'name': 'DragonLearner', 'initial': 'D', 'gradient': 'from-red-400 to-red-600', 'level': 11},
+        {'name': '普通話王', 'initial': '普', 'gradient': 'from-indigo-400 to-indigo-600', 'level': 7},
+    ]
+    return render_template('friends.html',
+                           online_friends=online_friends,
+                           friends=friends_list,
+                           suggestions=suggestions)
+
+@app.route('/profile')
+def profile():
+    achievements = [
+        {'name': '首勝', 'icon': 'emoji_events', 'gradient': 'from-yellow-400 to-amber-500'},
+        {'name': '連勝 3', 'icon': 'local_fire_department', 'gradient': 'from-orange-400 to-red-500'},
+        {'name': '詞彙王', 'icon': 'menu_book', 'gradient': 'from-blue-400 to-blue-600'},
+        {'name': '7天連續', 'icon': 'calendar_month', 'gradient': 'from-emerald-400 to-teal-500'},
+        {'name': '速答王', 'icon': 'bolt', 'gradient': 'from-purple-400 to-purple-600'},
+    ]
+    recent_games = [
+        {'mode': 'A1A2', 'category': 'Mixed', 'date': '今天', 'correct': 4, 'total': 5, 'result': 'win', 'points': 850},
+        {'mode': 'B1B2', 'category': 'Grammar', 'date': '昨天', 'correct': 2, 'total': 5, 'result': 'loss', 'points': 200},
+        {'mode': 'A1A2', 'category': 'Vocab', 'date': '2天前', 'correct': 5, 'total': 5, 'result': 'win', 'points': 1200},
+        {'mode': 'A1A2', 'category': 'Mixed', 'date': '3天前', 'correct': 3, 'total': 5, 'result': 'win', 'points': 600},
+    ]
+    return render_template('profile.html',
+                           user_name="英雄玩家",
+                           progress=65,
+                           streak=7,
+                           level=15,
+                           joined="2025 Jan",
+                           total_score=24350,
+                           games_played=48,
+                           win_rate=73,
+                           achievements=achievements,
+                           recent_games=recent_games)
+
 @app.route('/topic/<name>')
 def topic(name):
     session['last_topic'] = name
@@ -125,12 +189,71 @@ def topic(name):
 def start_practice(topic_name, p_type):
     session['topic'] = topic_name
     session['p_type'] = p_type
-    session['questions'] = generate_questions_by_topic(topic_name, p_type)
-    session['current_idx'] = 0
     session['score'] = 0
     session['correct_count'] = 0
     session['bot_score'] = 0
-    return redirect(url_for('quiz'))
+
+    if p_type == 'voc':
+        items = content_service.get_items(topic_name, 'vocabulary') if content_service else []
+        session['voc_items'] = items
+        session['voc_idx'] = 0
+        return redirect(url_for('quiz'))
+
+    elif p_type == 'dia':
+        items = content_service.get_items(topic_name, 'dialogue') if content_service else []
+        questions = []
+        for item in items:
+            opts = list(item.get('options', []))
+            correct_text = next((o['text'] for o in opts if o.get('is_correct')), '')
+            opt_texts = [o['text'] for o in opts]
+            random.shuffle(opt_texts)
+            questions.append({'type': '情境對話', 'q': item.get('question', ''), 'o': opt_texts, 'a': correct_text})
+        if not questions:
+            questions = generate_questions_by_topic(topic_name, p_type)
+        session['questions'] = questions
+        session['current_idx'] = 0
+        return redirect(url_for('quiz'))
+
+    elif p_type == 'lis':
+        items = content_service.get_items(topic_name, 'listening') if content_service else []
+        questions = []
+        for item in items:
+            opts = list(item.get('options', []))
+            correct_text = next((o['text'] for o in opts if o.get('is_correct')), '')
+            opt_texts = [o['text'] for o in opts]
+            random.shuffle(opt_texts)
+            questions.append({
+                'type': '聽力測驗',
+                'q': item.get('audio_text', ''),
+                'o': opt_texts,
+                'a': correct_text,
+                'lis_question': item.get('question', '')
+            })
+        if not questions:
+            questions = generate_questions_by_topic(topic_name, p_type)
+        session['questions'] = questions
+        session['current_idx'] = 0
+        return redirect(url_for('quiz'))
+
+    else:
+        session['questions'] = generate_questions_by_topic(topic_name, p_type)
+        session['current_idx'] = 0
+        return redirect(url_for('quiz'))
+
+
+@app.route('/voc_next', methods=['POST'])
+def voc_next():
+    action = request.form.get('action', 'practice')
+    idx = session.get('voc_idx', 0)
+    if action == 'mastered':
+        points = 500
+        session['score'] = session.get('score', 0) + points
+        session['correct_count'] = session.get('correct_count', 0) + 1
+        session['voc_idx'] = idx + 1
+        return redirect(url_for('quiz', lp=points, lc=1))
+    else:
+        session['voc_idx'] = idx + 1
+        return redirect(url_for('quiz', lp=0, lc=0))
 
 @app.route('/start_game/<mode>')
 def start_game(mode):
@@ -143,11 +266,28 @@ def start_game(mode):
 
 @app.route('/quiz')
 def quiz():
-    idx = session.get('current_idx', 0)
-    questions = session.get('questions', [])
     p_type = session.get('p_type')
+    topic = session.get('topic', 'cuisine')
     last_points = request.args.get('lp', -1, type=int)
     last_correct = request.args.get('lc', -1, type=int)
+
+    # Vocabulary flashcard mode
+    if p_type == 'voc':
+        items = session.get('voc_items', [])
+        idx = session.get('voc_idx', 0)
+        if not items or idx >= len(items):
+            return redirect(url_for('result'))
+        return render_template('voc.html',
+                               item=items[idx],
+                               current_idx=idx,
+                               total=len(items),
+                               topic=topic,
+                               player_score=session.get('score', 0),
+                               last_points=last_points,
+                               last_correct=last_correct)
+
+    idx = session.get('current_idx', 0)
+    questions = session.get('questions', [])
 
     if idx >= len(questions):
         return redirect(url_for('result'))
@@ -157,8 +297,6 @@ def quiz():
     template_name = '遊戲頁.html'
     if p_type == 'lis':
         template_name = 'lis.html'
-    elif p_type == 'voc':
-        template_name = 'voc.html'
     elif p_type == 'dia':
         template_name = 'dia.html'
 
@@ -169,6 +307,15 @@ def quiz():
     except:
         template_name = '遊戲頁.html'
 
+    extra = {}
+    if p_type == 'lis':
+        extra['lis_question'] = q.get('lis_question', '')
+        audio_text = q.get('q', '')
+        if tts_service and audio_text:
+            extra['audio_url'] = tts_service.generate(audio_text) or ''
+        else:
+            extra['audio_url'] = ''
+
     return render_template(template_name,
                            question=q['q'],
                            options=q['o'],
@@ -178,7 +325,8 @@ def quiz():
                            player_score=session.get('score', 0),
                            bot_score=session.get('bot_score', 0),
                            last_points=last_points,
-                           last_correct=last_correct)
+                           last_correct=last_correct,
+                           **extra)
 
 @app.route('/answer', methods=['POST'])
 def answer():
@@ -252,6 +400,57 @@ def start_game_lobby():
 @app.route('/admin/questions')
 def admin_questions():
     return render_template('admin_questions.html')
+
+@app.route('/admin/content')
+def admin_content():
+    return render_template('admin_content.html')
+
+# ==================== Content API ====================
+
+@app.route('/api/content/<topic>/<content_type>', methods=['GET'])
+def api_get_content(topic, content_type):
+    if content_service is None:
+        return jsonify({'error': 'Service not available'}), 503
+    items = content_service.get_items(topic, content_type)
+    return jsonify({'items': items, 'total': len(items)})
+
+@app.route('/api/content/<topic>/<content_type>', methods=['POST'])
+def api_add_content(topic, content_type):
+    if content_service is None:
+        return jsonify({'error': 'Service not available'}), 503
+    data = request.get_json()
+    item = content_service.add_item(topic, content_type, data)
+    if item is None:
+        return jsonify({'error': 'Invalid topic or content type'}), 400
+    return jsonify(item), 201
+
+@app.route('/api/content/<topic>/<content_type>/<item_id>', methods=['GET'])
+def api_get_content_item(topic, content_type, item_id):
+    if content_service is None:
+        return jsonify({'error': 'Service not available'}), 503
+    item = content_service.get_item(topic, content_type, item_id)
+    if item is None:
+        return jsonify({'error': 'Not found'}), 404
+    return jsonify(item)
+
+@app.route('/api/content/<topic>/<content_type>/<item_id>', methods=['PUT'])
+def api_update_content(topic, content_type, item_id):
+    if content_service is None:
+        return jsonify({'error': 'Service not available'}), 503
+    data = request.get_json()
+    item = content_service.update_item(topic, content_type, item_id, data)
+    if item is None:
+        return jsonify({'error': 'Not found'}), 404
+    return jsonify(item)
+
+@app.route('/api/content/<topic>/<content_type>/<item_id>', methods=['DELETE'])
+def api_delete_content(topic, content_type, item_id):
+    if content_service is None:
+        return jsonify({'error': 'Service not available'}), 503
+    success = content_service.delete_item(topic, content_type, item_id)
+    if not success:
+        return jsonify({'error': 'Not found'}), 404
+    return jsonify({'success': True})
 
 # ==================== API Routes ====================
 

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-TW"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#ec5b13",
+            "secondary": "#0d9488",
+            "background-light": "#f8f6f6",
+            "background-dark": "#221610",
+          },
+          fontFamily: { "display": ["Plus Jakarta Sans"] },
+          borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+        },
+      },
+    }
+</script>
+<title>華語知識王 - Friends</title>
+<style>
+    body { min-height: max(884px, 100dvh); }
+</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen w-full flex-col max-w-md mx-auto bg-white dark:bg-slate-900 shadow-xl overflow-x-hidden">
+
+<!-- Header -->
+<header class="flex items-center bg-white dark:bg-slate-900 p-4 pb-2 justify-between sticky top-0 z-10 border-b border-slate-100 dark:border-slate-800">
+    <div class="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10">
+        <span class="material-symbols-outlined text-primary">group</span>
+    </div>
+    <h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 ml-3">Friends</h2>
+    <div class="flex items-center gap-2">
+        <button onclick="showAddFriend()" class="flex items-center justify-center rounded-xl h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 active:scale-95 transition-transform">
+            <span class="material-symbols-outlined">person_add</span>
+        </button>
+        <a href="/settings" class="flex items-center justify-center rounded-xl h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+            <span class="material-symbols-outlined">settings</span>
+        </a>
+    </div>
+</header>
+
+<main class="flex-1 pb-24">
+
+    <!-- Search Bar -->
+    <div class="p-4 pb-2">
+        <div class="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 rounded-xl px-4 py-3">
+            <span class="material-symbols-outlined text-slate-400 text-xl">search</span>
+            <input type="text" placeholder="搜尋好友..." class="bg-transparent flex-1 text-sm outline-none text-slate-700 dark:text-slate-200 placeholder-slate-400" oninput="filterFriends(this.value)"/>
+        </div>
+    </div>
+
+    <!-- Friends Leaderboard Banner -->
+    <div class="px-4 py-2">
+        <div class="bg-gradient-to-br from-secondary to-teal-400 rounded-xl p-5 text-white shadow-lg relative overflow-hidden">
+            <div class="relative z-10">
+                <p class="text-xs font-semibold opacity-80 uppercase tracking-wider mb-1">本週好友排行</p>
+                <h3 class="text-2xl font-black">Weekly Leaderboard</h3>
+                <p class="text-sm opacity-80 mt-1">與好友一起競爭，衝上榜首！</p>
+                <a href="/lobby" class="inline-flex items-center gap-1 mt-3 bg-white/20 hover:bg-white/30 text-white text-xs font-bold px-4 py-2 rounded-full transition-colors">
+                    <span class="material-symbols-outlined text-sm">swords</span>
+                    挑戰好友
+                </a>
+            </div>
+            <span class="material-symbols-outlined absolute -right-4 -bottom-4 text-white/10 text-9xl">leaderboard</span>
+        </div>
+    </div>
+
+    <!-- Online Now -->
+    <section class="mt-4 px-4">
+        <h3 class="text-slate-900 dark:text-slate-100 font-bold text-base mb-3">Online Now</h3>
+        <div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+            {% for friend in online_friends %}
+            <div class="flex flex-col items-center gap-1 min-w-[60px]">
+                <div class="relative">
+                    <div class="w-14 h-14 rounded-full bg-gradient-to-br {{ friend.gradient }} flex items-center justify-center text-white font-black text-lg border-2 border-white dark:border-slate-800 shadow">
+                        {{ friend.initial }}
+                    </div>
+                    <div class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-green-400 rounded-full border-2 border-white dark:border-slate-800"></div>
+                </div>
+                <p class="text-[10px] font-medium text-slate-600 dark:text-slate-400 truncate w-14 text-center">{{ friend.name }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Friends List -->
+    <section class="mt-5 px-4">
+        <div class="flex justify-between items-center mb-3">
+            <h3 class="text-slate-900 dark:text-slate-100 font-bold text-base">All Friends <span class="text-primary">{{ friends|length }}</span></h3>
+        </div>
+        <div id="friendsList" class="space-y-3">
+            {% for friend in friends %}
+            <div class="friend-card flex items-center gap-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl p-3" data-name="{{ friend.name|lower }}">
+                <!-- Rank -->
+                <div class="w-7 text-center">
+                    {% if loop.index == 1 %}
+                    <span class="material-symbols-outlined text-yellow-500" style="font-variation-settings:'FILL' 1; font-size:20px;">emoji_events</span>
+                    {% elif loop.index == 2 %}
+                    <span class="material-symbols-outlined text-slate-400" style="font-variation-settings:'FILL' 1; font-size:20px;">emoji_events</span>
+                    {% elif loop.index == 3 %}
+                    <span class="material-symbols-outlined text-amber-700" style="font-variation-settings:'FILL' 1; font-size:20px;">emoji_events</span>
+                    {% else %}
+                    <span class="text-slate-400 text-sm font-bold">#{{ loop.index }}</span>
+                    {% endif %}
+                </div>
+                <!-- Avatar -->
+                <div class="w-11 h-11 rounded-full bg-gradient-to-br {{ friend.gradient }} flex items-center justify-center text-white font-black text-base shrink-0 shadow">
+                    {{ friend.initial }}
+                </div>
+                <!-- Info -->
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-1.5">
+                        <p class="font-bold text-sm text-slate-900 dark:text-slate-100 truncate">{{ friend.name }}</p>
+                        {% if friend.online %}
+                        <span class="w-2 h-2 rounded-full bg-green-400 shrink-0"></span>
+                        {% endif %}
+                    </div>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Level {{ friend.level }} · {{ friend.score }} pts</p>
+                </div>
+                <!-- Challenge Button -->
+                <a href="/lobby" class="shrink-0 bg-primary/10 hover:bg-primary/20 text-primary rounded-lg p-2 transition-colors active:scale-95">
+                    <span class="material-symbols-outlined text-lg">swords</span>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Add Friend Suggestion -->
+    <section class="mt-5 px-4">
+        <h3 class="text-slate-900 dark:text-slate-100 font-bold text-base mb-3">Suggested Friends</h3>
+        <div class="space-y-3">
+            {% for s in suggestions %}
+            <div class="flex items-center gap-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl p-3">
+                <div class="w-11 h-11 rounded-full bg-gradient-to-br {{ s.gradient }} flex items-center justify-center text-white font-black text-base shrink-0 shadow">
+                    {{ s.initial }}
+                </div>
+                <div class="flex-1 min-w-0">
+                    <p class="font-bold text-sm text-slate-900 dark:text-slate-100 truncate">{{ s.name }}</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Level {{ s.level }}</p>
+                </div>
+                <button class="shrink-0 bg-secondary text-white text-xs font-bold px-3 py-1.5 rounded-lg active:scale-95 transition-transform">
+                    + Add
+                </button>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+</main>
+
+<!-- Add Friend Modal -->
+<div id="addFriendModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-end justify-center max-w-md mx-auto left-0 right-0">
+    <div class="bg-white dark:bg-slate-900 rounded-t-2xl w-full p-6 shadow-xl">
+        <h3 class="font-bold text-lg mb-4">加入好友</h3>
+        <div class="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 rounded-xl px-4 py-3 mb-4">
+            <span class="material-symbols-outlined text-slate-400 text-xl">person_search</span>
+            <input type="text" id="addFriendInput" placeholder="輸入用戶名稱..." class="bg-transparent flex-1 text-sm outline-none text-slate-700 dark:text-slate-200 placeholder-slate-400"/>
+        </div>
+        <button class="w-full bg-primary text-white font-bold py-3 rounded-xl active:scale-[0.98] transition-transform mb-3">送出邀請</button>
+        <button onclick="hideAddFriend()" class="w-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-bold py-3 rounded-xl active:scale-[0.98] transition-transform">取消</button>
+    </div>
+</div>
+
+<!-- Bottom Nav -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-100 dark:border-slate-800 flex justify-around items-center py-3 px-4 z-20">
+    <a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="/">
+        <span class="material-symbols-outlined">home</span>
+        <p class="text-[10px] font-medium">Home</p>
+    </a>
+    <a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="/lobby">
+        <span class="material-symbols-outlined">trophy</span>
+        <p class="text-[10px] font-medium">Leagues</p>
+    </a>
+    <a class="flex flex-col items-center gap-1 text-primary" href="/friends">
+        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">group</span>
+        <p class="text-[10px] font-bold">Friends</p>
+    </a>
+    <a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="/profile">
+        <span class="material-symbols-outlined">person</span>
+        <p class="text-[10px] font-medium">Profile</p>
+    </a>
+</nav>
+
+</div>
+<script>
+    function filterFriends(val) {
+        document.querySelectorAll('.friend-card').forEach(card => {
+            const name = card.dataset.name || '';
+            card.style.display = name.includes(val.toLowerCase()) ? '' : 'none';
+        });
+    }
+    function showAddFriend() {
+        document.getElementById('addFriendModal').classList.remove('hidden');
+    }
+    function hideAddFriend() {
+        document.getElementById('addFriendModal').classList.add('hidden');
+    }
+</script>
+</body></html>

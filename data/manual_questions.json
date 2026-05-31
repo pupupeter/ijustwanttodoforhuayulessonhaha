@@ -10,10 +10,26 @@
         "audio_text": null
       },
       "options": [
-        {"id": "A", "text": "jiǎo zi", "is_correct": true},
-        {"id": "B", "text": "jiāo zǐ", "is_correct": false},
-        {"id": "C", "text": "jiào zi", "is_correct": false},
-        {"id": "D", "text": "jiǎo zī", "is_correct": false}
+        {
+          "id": "A",
+          "text": "jiǎo zi",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "jiāo zǐ",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "jiào zi",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "jiǎo zī",
+          "is_correct": false
+        }
       ],
       "created_at": "2024-01-10T08:00:00Z"
     },
@@ -27,10 +43,26 @@
         "audio_text": null
       },
       "options": [
-        {"id": "A", "text": "biàn yí", "is_correct": false},
-        {"id": "B", "text": "pián yi", "is_correct": true},
-        {"id": "C", "text": "pián yì", "is_correct": false},
-        {"id": "D", "text": "biàn yì", "is_correct": false}
+        {
+          "id": "A",
+          "text": "biàn yí",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "pián yi",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "pián yì",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "biàn yì",
+          "is_correct": false
+        }
       ],
       "created_at": "2024-01-10T08:00:00Z"
     },
@@ -44,10 +76,26 @@
         "audio_text": "火車站"
       },
       "options": [
-        {"id": "A", "text": "火車站", "is_correct": true},
-        {"id": "B", "text": "汽車站", "is_correct": false},
-        {"id": "C", "text": "公車站", "is_correct": false},
-        {"id": "D", "text": "捷運站", "is_correct": false}
+        {
+          "id": "A",
+          "text": "火車站",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "汽車站",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "公車站",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "捷運站",
+          "is_correct": false
+        }
       ],
       "created_at": "2024-01-10T08:00:00Z"
     },
@@ -61,12 +109,3658 @@
         "audio_text": null
       },
       "options": [
-        {"id": "A", "text": "下午兩點在會議室", "is_correct": true},
-        {"id": "B", "text": "我很忙", "is_correct": false},
-        {"id": "C", "text": "謝謝你", "is_correct": false},
-        {"id": "D", "text": "好的再見", "is_correct": false}
+        {
+          "id": "A",
+          "text": "下午兩點在會議室",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "我很忙",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "謝謝你",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "好的再見",
+          "is_correct": false
+        }
       ],
       "created_at": "2024-01-10T08:00:00Z"
+    },
+    {
+      "id": "manual_005",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "tourism",
+      "question": {
+        "text": "你在咖啡廳點完咖啡，店員問你：「內用還是外帶？」你想帶走喝，會說：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "我有兩百塊。",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "我要外帶，謝謝。",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "我家就在這附近。",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "咖啡廳很漂亮。",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-17T17:29:39Z"
+    },
+    {
+      "id": "manual_006",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "tourism",
+      "question": {
+        "text": "你想買東西吃，但老闆正在忙：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "比起水，我喜歡喝咖啡。",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "再見，我下次再來。",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "請問我可以點餐嗎？",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "我正在這裡等我的朋友。",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-17T17:29:39Z"
+    },
+    {
+      "id": "manual_007",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "tourism",
+      "question": {
+        "text": "你在飯店辦理入住（Check-in），櫃檯人員向你要護照，你會說：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "你的護照照片很好看。",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "這是我的護照，給你。",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "請問要住在這裡多久？",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "護照是非常重要的證件。",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-17T17:29:39Z"
+    },
+    {
+      "id": "manual_008",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "tourism",
+      "question": {
+        "text": "你在捷運站發現悠遊卡（IC Card）沒錢了，要去服務台加值（Top-up）：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "請問這張卡片在哪裡買？",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "請問這張卡片可以搭公車嗎？",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "捷運站裡面不可以吃東西。",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "我想幫這張卡片加五百元。",
+          "is_correct": true
+        }
+      ],
+      "created_at": "2026-05-17T17:29:39Z"
+    },
+    {
+      "id": "manual_009",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "tourism",
+      "question": {
+        "text": "你在餐廳吃飽了，服務生過來問：「請問餐點還可以嗎？」你想稱讚食物：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "我已經吃得很飽了。",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "味道很不錯，我很喜歡。",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "服務生的態度非常親切。",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "我下次不會去旁邊的店。",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-17T17:29:39Z"
+    },
+    {
+      "id": "manual_010",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "tourism",
+      "question": {
+        "text": "你在百貨公司試穿牛仔褲，發現腰圍太緊，想找大一點的尺寸：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "請問這條褲子很大嗎？",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "我覺得我最近好像變瘦了。",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "請問這件有再大一號的嗎？",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "這件衣服摸起來怎麼樣？",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-17T17:29:39Z"
+    },
+    {
+      "id": "manual_011",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "tourism",
+      "question": {
+        "text": "你在路邊攔計程車，上車後司機問：「要去哪裡？」你指了地圖上的地點：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "我想去這個地方，謝謝。",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "這個地方風景很美，我喜歡。",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "台灣的計程車司機都很熱情。",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "我想坐捷運去台北車站。",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-17T17:29:39Z"
+    },
+    {
+      "id": "manual_012",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "tourism",
+      "question": {
+        "text": "你在夜市觀光，想請路人幫你和你朋友拍一張合照：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "這裡的風景真的很適合拍電影。",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "拍照的時候請微笑。",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "您的相機看起來非常專業。",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "請問能麻煩您幫我們拍張照嗎？",
+          "is_correct": true
+        }
+      ],
+      "created_at": "2026-05-17T17:29:39Z"
+    },
+    {
+      "id": "manual_013",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "tourism",
+      "question": {
+        "text": "你到了一間餐廳，不知道要點什麼菜，想請服務生推薦，你會說：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "請問你們營業到什麼時候？",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "請問你能不能幫我打包這兩道菜？",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "請問你們最受歡迎的是什麼餐點？",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "我想在這裡跟朋友一起吃飯。",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-17T17:29:39Z"
+    },
+    {
+      "id": "manual_014",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "tourism",
+      "question": {
+        "text": "在藥局，你想買暈車藥，因為你等一下要搭長途巴士：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "請問要在哪裡搭巴士？",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "我會暈車，請問有推薦的藥嗎？",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "從這裡坐車到過去需要多久。",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "我非常期待這趟旅程。",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-17T17:29:39Z"
+    },
+    {
+      "id": "manual_015",
+      "type": "listening",
+      "level": "B1",
+      "topic": "tourism",
+      "question": {
+        "text": "請問這班飛機最後幾點起飛？",
+        "audio_text": "各位旅客請注意，原定兩點十分飛往東京的班機，因為天氣關係，延後到三點半起飛。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "兩點十分",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "三點",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "三點半",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "兩點半",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-17T17:29:39Z"
+    },
+    {
+      "id": "manual_016",
+      "type": "listening",
+      "level": "B1",
+      "topic": "tourism",
+      "question": {
+        "text": "從出發地到九份總共需要花多少時間？",
+        "audio_text": "去九份的話，坐火車要一個小時，到了火車站以後還要再搭二十分鐘的公車才會到。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "一個小時二十分鐘",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "一個小時",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "二十分鐘",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "一個小時四十分鐘",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-17T17:29:39Z"
+    },
+    {
+      "id": "manual_017",
+      "type": "listening",
+      "level": "B1",
+      "topic": "tourism",
+      "question": {
+        "text": "這間餐廳今天賣出了幾碗牛肉麵？",
+        "audio_text": "這間餐廳的牛肉麵每天限量五十碗，我們今天運氣很好，剛好點到最後兩碗。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "兩碗",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "四八碗",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "五十碗",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "五十二碗",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-17T17:29:39Z"
+    },
+    {
+      "id": "manual_018",
+      "type": "listening",
+      "level": "B1",
+      "topic": "tourism",
+      "question": {
+        "text": "持有國際學生證的遊客，買一張票要多少錢？",
+        "audio_text": "前往阿里山的小火車，全票是一張四百元。如果你有國際學生證的話，可以半價。」"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "四百元",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "兩百元",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "一百元",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "免費",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-17T17:29:39Z"
+    },
+    {
+      "id": "manual_019",
+      "type": "listening",
+      "level": "B1",
+      "topic": "tourism",
+      "question": {
+        "text": "地圖上原本是夜市的地方，現在是什麼？",
+        "audio_text": "男：這張地圖借我看一下，我想找市中心那家有名的夜市。女：那家夜市早就搬家了，現在地圖上那個位置變成了一座公園，旁邊有大樓"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "另一家夜市",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "公園",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "大樓",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "火車站",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-17T17:29:39Z"
+    },
+    {
+      "id": "manual_020",
+      "type": "listening",
+      "level": "B1",
+      "topic": "tourism",
+      "question": {
+        "text": "如果房客需要牙刷，應該怎麼做？",
+        "audio_text": "各位旅客您好，飯店因配合環保政策，房間內不主動提供牙刷、梳子。若有需要，請到一樓櫃檯詢問。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "到一樓櫃檯詢問",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "去房間的浴室找",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "自己去外面買",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "打電話問服務生",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-17T17:29:39Z"
+    },
+    {
+      "id": "manual_021",
+      "type": "listening",
+      "level": "B1",
+      "topic": "tourism",
+      "question": {
+        "text": "這位先生在博物館做了什麼不該做的事？",
+        "audio_text": "女：先生，不好意思，這裡是禁止拍照的，請您把相機收起來。男：啊，對不起，我沒注意到門口的告示牌。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "沒買票就進去",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "在裡面吃東西",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "用相機拍照",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "弄壞了告示牌",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-17T17:29:39Z"
+    },
+    {
+      "id": "manual_022",
+      "type": "listening",
+      "level": "B1",
+      "topic": "tourism",
+      "question": {
+        "text": "說話者建議大家搭乘什麼交通工具去小島？",
+        "audio_text": "去島上觀光，雖然坐船只要半個小時，但是很容易暈船。所以我建議大家搭飛機。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "船",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "火車",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "巴士",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "飛機",
+          "is_correct": true
+        }
+      ],
+      "created_at": "2026-05-17T17:29:39Z"
+    },
+    {
+      "id": "manual_023",
+      "type": "listening",
+      "level": "B1",
+      "topic": "tourism",
+      "question": {
+        "text": "今天小花很餓，推薦他吃什麼？",
+        "audio_text": "男：請問這條美食街哪一家店最受歡迎？女：飲料店賣最好，但是如果要吃飽的話，大家都喜歡中間那家炒飯。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "轉角的飲料",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "義大利麵",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "麵包",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "炒飯",
+          "is_correct": true
+        }
+      ],
+      "created_at": "2026-05-17T17:29:39Z"
+    },
+    {
+      "id": "manual_024",
+      "type": "listening",
+      "level": "B1",
+      "topic": "tourism",
+      "question": {
+        "text": "下面哪個說法正確？",
+        "audio_text": "男：大明，這是我的大學同學李美華。美華，大明是我在台灣旅行時認識的好朋友，他很了解當地美食喔。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "大明和李美華是大學同學",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "大明和李美華在台灣認識",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "大明和李美華是今天才認識",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "大明是李美華的老闆",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-17T17:29:39Z"
+    },
+    {
+      "id": "manual_025",
+      "type": "vocabulary",
+      "level": "A1",
+      "topic": "worklife",
+      "question": {
+        "text": "請選出「工作」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "tóngshì",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "gōngzuò",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "fùzé",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "bàngōngshì",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_026",
+      "type": "vocabulary",
+      "level": "A2",
+      "topic": "worklife",
+      "question": {
+        "text": "請選出「公司」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "gōngsī",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "qǐngjià",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "fùzé",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "tóngshì",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_027",
+      "type": "vocabulary",
+      "level": "A2",
+      "topic": "worklife",
+      "question": {
+        "text": "請選出「辦公室」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "miànshì",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "qǐngjià",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "xīnshuǐ",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "bàngōngshì",
+          "is_correct": true
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_028",
+      "type": "vocabulary",
+      "level": "A2",
+      "topic": "worklife",
+      "question": {
+        "text": "請選出「加班」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "qǐngjià",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "jiābān",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "gōngsī",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "tóngshì",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_029",
+      "type": "vocabulary",
+      "level": "B2",
+      "topic": "worklife",
+      "question": {
+        "text": "請選出「面試」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "miànshì",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "gōngsī",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "qǐngjià",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "bàngōngshì",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_030",
+      "type": "vocabulary",
+      "level": "B2",
+      "topic": "worklife",
+      "question": {
+        "text": "請選出「薪水」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "xīnshuǐ",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "bàngōngshì",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "jiābān",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "gōngsī",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_031",
+      "type": "vocabulary",
+      "level": "B2",
+      "topic": "worklife",
+      "question": {
+        "text": "請選出「同事」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "tóngshì",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "jiābān",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "xīnshuǐ",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "lùqǔ",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_032",
+      "type": "vocabulary",
+      "level": "B2",
+      "topic": "worklife",
+      "question": {
+        "text": "請選出「請假」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "tóngshì",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "fùzé",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "qǐngjià",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "gōngsī",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_033",
+      "type": "vocabulary",
+      "level": "A2",
+      "topic": "worklife",
+      "question": {
+        "text": "請選出「負責」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "miànshì",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "fùzé",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "bàngōngshì",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "tóngshì",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_034",
+      "type": "vocabulary",
+      "level": "A2",
+      "topic": "worklife",
+      "question": {
+        "text": "請選出「錄取」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "tóngshì",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "lùqǔ",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "miànshì",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "jiābān",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_035",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "worklife",
+      "question": {
+        "text": "第一天上班，新來的同事主動走過來跟你打招呼說：「你好，我是新來的助理，請多指教。」你應該怎麼回應最合適？",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "沒關係，慢慢來。",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "你好！歡迎你加入我們公司。",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "我不知道他是誰。",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "請幫我買一杯咖啡。",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_036",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "worklife",
+      "question": {
+        "text": "你在辦公室準備印資料，但不會使用這台新型的影印機，想請身邊的同事幫忙，你該怎麼說？",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "喂！快來幫我印這個。",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "請問你現在方便教我怎麼用這台影印機嗎？",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "這個影印機壞了，你趕快來修。",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "你有看到我的文件嗎？",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_037",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "worklife",
+      "question": {
+        "text": "團隊在討論下半年的活動企劃時，你不同意同事小張的提案，因為你認為那個方案的預算太高了。你該怎麼表達看法才不會破壞職場和諧？",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "小張，你的想法太不切實際了，根本是在浪費公司的錢。",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "大家都覺得這個不好，你還是放棄這個想法吧。",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "我沒意見，你們大家決定就好，反正到時候出問題別找我。",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "小張的提議很有創意，不過考慮到我們目前的預算限制，可能需要再調整一下。",
+          "is_correct": true
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_038",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "worklife",
+      "question": {
+        "text": "你今天早上起床覺得身體很不舒服、發燒了，想跟主管請假一天去看醫生。你該怎麼傳訊息給主管說明？",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "我今天不想去上班，再見。",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "主管不好意思，我今天發燒、身體不舒服，想請一天病假去醫院看醫生，謝謝。",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "我生病了，你今天幫我做我的工作。",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "為什麼今天天氣這麼冷？我不要去辦公室了。",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_039",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "worklife",
+      "question": {
+        "text": "客戶來到公司，已經在會議室坐下了。你身為接待人員，想禮貌地詢問對方想喝點什麼，該怎麼說？",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "請問您想喝茶還是咖啡？",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "你肚子餓不餓？我們辦公室有泡麵。",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "我們公司只有開水，你喝水吧。",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "經理等一下才來，你先滑手機吧。",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_040",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "worklife",
+      "question": {
+        "text": "原定下午三點要開的部門例會，因為主管臨時被總經理找去開會，必須延後到四點。你想在工作群組通知其他同仁，該怎麼說？",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "主管被總經理罵了，所以下午不開會了。",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "今天的會議取消了，大家可以提早下班。",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "各位同仁不好意思，因主管臨時有緊急會議，原訂三點的例會改至四點舉行，謝謝。",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "更改時間了，你們四點自己來會議室。",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_041",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "worklife",
+      "question": {
+        "text": "星期五下班前，同事們熱情地邀請你一起去吃熱炒、喝啤酒，但你當天晚上已經跟家人約好要聚餐慶生。你該如何婉拒？",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "謝謝你們的邀請！不過今晚剛好家人過生日，我得回家聚餐，這次就先不去了，祝你們玩得開心！",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "我不想去，吃熱炒太吵了，而且喝啤酒會胖。",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "你們每次都找我，我今天真的沒空，不要再問了。",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "如果你們幫我付錢的話，我就考慮去一下。",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_042",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "worklife",
+      "question": {
+        "text": "主管在下班前給了你一份新產品的資料，對你說：「這個你先看一下。」你不太確定主管的意思是要你「現在加班看完」，還是「明天上班再看」。你應該怎麼詢問？",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "主管，這份資料需要今天下班前看完，還是明天早上再看呢？",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "主管，你現在給我這個，是不是不想讓我準時下班？",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "主管，這份新產品資料的內容很有趣，謝謝你分享給我。",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "主管，我今天晚上有事，我現在要準備打卡下班了。",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_043",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "worklife",
+      "question": {
+        "text": "你下禮拜因為家裡有私事，必須請假兩天。你在向主管遞出請假申請時，除了說請假原因，還需要同時說明什麼，主管最容易批准？",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "說明因為最近工作壓力太大，想趁這兩天好好在家睡覺休息。",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "說明如果主管不准假的話，你可能會考慮用離職的方式處理。",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "說明這兩天我負責的日常工作，已經請同事小王當我的職務代理人，緊急事件可以聯絡他。",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "說明反正下禮拜全公司都很閒，就算我請假兩天，也不會影響任何進度。",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_044",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "worklife",
+      "question": {
+        "text": "隔壁部門的同仁跑來找你，很著急地說：「我們部門的簡報卡住了，你英文最好，能不能現在幫我把這篇 5000 字的商務合約翻成英文？我一小時後要！」但你對法律專有名詞並不熟悉，而且手上有自己的事。你該怎麼採取合適的行動策略？",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "答應他，然後立刻放下自己手邊的工作，用翻譯軟體隨便幫他翻完。",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "告訴他這不是我的工作，請他自己花錢去外面找專業的翻譯公司。",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "說明這涉及法律合約，需要高度專業，建議他請示主管找法務或專業翻譯協助，避免出錯。",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "先答應下來，但兩個小時後再告訴他你沒時間做，把資料還給他。",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_045",
+      "type": "listening",
+      "level": "B1",
+      "topic": "worklife",
+      "question": {
+        "text": "小明要在哪裡影印文件？",
+        "audio_text": "小明，幫我把這些文件拿去三樓的總務處影印，印好之後送去會議室給王經理。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "會議室",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "一樓大廳",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "三樓總務處",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "經理辦公室",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_046",
+      "type": "listening",
+      "level": "B1",
+      "topic": "worklife",
+      "question": {
+        "text": "王助理現在首先要去哪裡？",
+        "audio_text": "王助理，請把桌上的發票拿去會計部，然後幫我拿一盒新的原子筆回來。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "經理辦公室",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "總務處",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "會計部",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "會議室",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_047",
+      "type": "listening",
+      "level": "B1",
+      "topic": "worklife",
+      "question": {
+        "text": "他們最後決定幾點開會？",
+        "audio_text": "我們原本預計早上十點開會，但是陳經理臨時有事，所以改到下午兩點了。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "下午四點",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "下午兩點",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "中午十二點",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "早上十點",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_048",
+      "type": "listening",
+      "level": "B1",
+      "topic": "worklife",
+      "question": {
+        "text": "說話的人職業是什麼？",
+        "audio_text": "我每天的工作是在餐廳幫客人點餐、送菜。雖然一直站著很累，但看到客人的笑容就很開心。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "司機",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "服務生",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "老闆",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "廚師",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_049",
+      "type": "listening",
+      "level": "B1",
+      "topic": "worklife",
+      "question": {
+        "text": "林小姐今天來公司做什麼？",
+        "audio_text": "各位同仁，這位是新來的行銷專員林小姐。她以前在別家公司做過兩年行銷，請大家多多照顧。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "開會討論",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "推銷別家公司的產品",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "第一天上班",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "找經理面試",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_050",
+      "type": "listening",
+      "level": "B1",
+      "topic": "worklife",
+      "question": {
+        "text": "花店明天會把花送到哪裡？",
+        "audio_text": "王小姐您好，這裡是幸福花店。您上禮拜為公司活動訂的二十盆黃色玫瑰花，我們已經準備好了，明天早上九點會送到你們公司一樓大廳，請記得來簽收，謝謝。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "花店大門口",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "公司一樓大廳",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "王小姐的家",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "會議室裡面",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_051",
+      "type": "listening",
+      "level": "B1",
+      "topic": "worklife",
+      "question": {
+        "text": "男子接下來第一個動作要做什麼？",
+        "audio_text": "男：這台影印機怎麼又卡紙了？我下午要交給客戶的資料還有五十頁沒印完。\n女：別急，四樓的影印機現在沒人用，你拿隨身碟去那邊印吧。\n男：好，那我先去請總務幫忙修這台，再去四樓。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "去四樓印資料",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "請總務修影印機",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "把資料放進隨身碟",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "打電話給客戶",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_052",
+      "type": "listening",
+      "level": "B1",
+      "topic": "worklife",
+      "question": {
+        "text": "男生最後決定幾點出發去接客戶？",
+        "audio_text": "男：陳秘書，下週去高鐵站接臺北客戶的時間是星期三下午兩點對吧？\n女：本來是兩點，但客戶剛剛來信說高鐵改班次，會遲到半個小時。\n男：知道了，那我兩點半再出發。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "下午兩點",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "下午兩點半",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "下午三點",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "下午三點半",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_053",
+      "type": "listening",
+      "level": "B1",
+      "topic": "worklife",
+      "question": {
+        "text": "關於這場活動企劃，下列哪一個敘述是正確的？",
+        "audio_text": "男：這次的新產品發表會，活動企劃書寫得怎麼樣了？\n女：差不多完成了，不過預算部分超出了兩萬塊，我正想找經理討論看看能不能調整。\n男：那你快去吧，經理下午四點要出差，你最好現在就去他辦公室。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "企劃書目前還完全沒有開始寫",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "活動預算比原本預期的還要少",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "女生現在準備去找經理談預算",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "經理下午四點會幫忙調整預算",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_054",
+      "type": "listening",
+      "level": "B1",
+      "topic": "worklife",
+      "question": {
+        "text": "男子為什麼決定換工作？",
+        "audio_text": "女：聽說你下個月要跳槽到那家外商公司了？真的假的？\n男：對啊，那邊開出的薪水比較高，福利也比較好。雖然可能常常需要跟國外客戶開會、加班，但我覺得是個很有挑戰性的機會。\n女：那先祝你步步高升啦！到時候別忘了請客！"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "因為現在的公司要求他天天加班",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "因為新公司提供更好的待遇與發展機會",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "因為他不想再跟國外的客戶開會溝通",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "因為現在的同事不打算請他吃飯",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_055",
+      "type": "vocabulary",
+      "level": "A1",
+      "topic": "shopping",
+      "question": {
+        "text": "請選出「商店」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "shìchuān",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "shāngdiàn",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "tuìhuò",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "chāoshì",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_056",
+      "type": "vocabulary",
+      "level": "A1",
+      "topic": "shopping",
+      "question": {
+        "text": "請選出「購物」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "gòuwù",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "shōuyínyuán",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "tuìhuò",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "shìchuān",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_057",
+      "type": "vocabulary",
+      "level": "A2",
+      "topic": "shopping",
+      "question": {
+        "text": "請選出「超市」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "dǎzhé",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "shōuyínyuán",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "jiàgé",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "chāoshì",
+          "is_correct": true
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_058",
+      "type": "vocabulary",
+      "level": "A2",
+      "topic": "shopping",
+      "question": {
+        "text": "請選出「衣服」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "shōuyínyuán",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "yīfú",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "gòuwù",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "shìchuān",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_059",
+      "type": "vocabulary",
+      "level": "B1",
+      "topic": "shopping",
+      "question": {
+        "text": "請選出「打折」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "dǎzhé",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "gòuwù",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "shōuyínyuán",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "chāoshì",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_060",
+      "type": "vocabulary",
+      "level": "B1",
+      "topic": "shopping",
+      "question": {
+        "text": "請選出「價格」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "jiàgé",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "chāoshì",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "yīfú",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "gòuwù",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_061",
+      "type": "vocabulary",
+      "level": "B2",
+      "topic": "shopping",
+      "question": {
+        "text": "請選出「試穿」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "shìchuān",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "yīfú",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "jiàgé",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "xìnyòngkǎ",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_062",
+      "type": "vocabulary",
+      "level": "B2",
+      "topic": "shopping",
+      "question": {
+        "text": "請選出「收銀員」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "shìchuān",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "tuìhuò",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "shōuyínyuán",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "gòuwù",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_063",
+      "type": "vocabulary",
+      "level": "A2",
+      "topic": "shopping",
+      "question": {
+        "text": "請選出「退貨」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "dǎzhé",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "tuìhuò",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "chāoshì",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "shìchuān",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_064",
+      "type": "vocabulary",
+      "level": "A2",
+      "topic": "shopping",
+      "question": {
+        "text": "請選出「信用卡」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "shìchuān",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "xìnyòngkǎ",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "dǎzhé",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "yīfú",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_065",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "shopping",
+      "question": {
+        "text": "你在服飾店看到一件衣服，但不知道自己適不適合尺寸，想問店員，你會說：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "這件衣服可以洗嗎？",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "請問有更大的尺寸嗎？",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "這件衣服在哪裡做的？",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "這件衣服多少錢？",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_066",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "shopping",
+      "question": {
+        "text": "你想知道商品的價格，你會說：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "請問這個多少錢？",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "可以幫我包起來嗎？",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "有沒有其他顏色？",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "可以試穿嗎？",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_067",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "shopping",
+      "question": {
+        "text": "你在商店找不到想買的商品，想請店員幫忙，你會說：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "這個可以退貨嗎？",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "請問洗手間在哪裡？",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "請問你們有賣這個嗎？",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "這裡可以刷卡嗎？",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_068",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "shopping",
+      "question": {
+        "text": "你買完東西想請店員幫你包裝，你會說：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "請問可以打折嗎？",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "請問可以幫我包起來嗎？",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "這個可以換顏色嗎？",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "這個在哪裡做的？",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_069",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "shopping",
+      "question": {
+        "text": "你想知道商品放在哪個區域，你會說：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "請問這個在哪一區？",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "這個可以退貨嗎？",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "有沒有比較便宜的？",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "可以刷卡嗎？",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_070",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "shopping",
+      "question": {
+        "text": "你想試穿衣服，你會說：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "這件可以打折嗎？",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "我可以試穿這件嗎？",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "這件有沒有現貨？",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "可以幫我包起來嗎？",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_071",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "shopping",
+      "question": {
+        "text": "你想知道商品有沒有折扣，你會說：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "請問這裡可以試用嗎？",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "這個可以刷卡嗎？",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "請問這件有打折嗎？",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "這個可以退貨嗎？",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_072",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "shopping",
+      "question": {
+        "text": "你在結帳時想用信用卡付款，你會說：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "可以刷卡嗎？",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "可以試穿嗎？",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "可以退貨嗎？",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "可以幫我找嗎？",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_073",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "shopping",
+      "question": {
+        "text": "你想請店員推薦商品，你會說：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "這個在哪裡？",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "你們最推薦什麼商品？",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "可以幫我包起來嗎？",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "這個多少錢？",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_074",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "shopping",
+      "question": {
+        "text": "你買到不適合的商品，想詢問退貨，你會說：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "可以幫我找嗎？",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "可以試穿嗎？",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "請問可以退貨嗎？",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "可以打折嗎？",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_075",
+      "type": "listening",
+      "level": "B1",
+      "topic": "shopping",
+      "question": {
+        "text": "女生想知道什麼？",
+        "audio_text": "女：請問這個多少錢？\n男：一件五百元。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "商品的顏色",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "商品的價格",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "商品的尺寸",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "商品在哪裡",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_076",
+      "type": "listening",
+      "level": "B1",
+      "topic": "shopping",
+      "question": {
+        "text": "女生想做什麼？",
+        "audio_text": "女：我可以試穿這件外套嗎？\n男：可以，試衣間在那邊。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "退貨",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "打折",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "試穿衣服",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "包裝商品",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_077",
+      "type": "listening",
+      "level": "B1",
+      "topic": "shopping",
+      "question": {
+        "text": "男生在找什麼？",
+        "audio_text": "男：請問你們有黑色的鞋子嗎？\n女：有，在右邊那一區。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "帽子",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "衣服",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "褲子",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "鞋子",
+          "is_correct": true
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_078",
+      "type": "listening",
+      "level": "B1",
+      "topic": "shopping",
+      "question": {
+        "text": "女生想知道什麼？",
+        "audio_text": "女：這件衣服有打折嗎？\n男：有，今天八折。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "能不能退貨",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "有沒有折扣",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "有沒有大尺寸",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "可不可以刷卡",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_079",
+      "type": "listening",
+      "level": "B1",
+      "topic": "shopping",
+      "question": {
+        "text": "男生想要什麼？",
+        "audio_text": "男：請幫我包起來。\n女：好的，請稍等"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "試穿商品",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "更換商品",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "包裝商品",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "查價格",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_080",
+      "type": "listening",
+      "level": "B1",
+      "topic": "shopping",
+      "question": {
+        "text": "女生有什麼問題？",
+        "audio_text": "女：不好意思，這件衣服太小了，可以換大一點的嗎？\n男：可以，我幫你找。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "衣服太貴",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "衣服太小",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "衣服太舊",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "衣服太長",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_081",
+      "type": "listening",
+      "level": "B1",
+      "topic": "shopping",
+      "question": {
+        "text": "男生想知道什麼？",
+        "audio_text": "男：請問這裡可以刷卡嗎？\n女：可以，也可以用手機付款。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "可不可以退貨",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "可不可以試穿",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "可不可以刷卡",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "可不可以打折",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_082",
+      "type": "listening",
+      "level": "B1",
+      "topic": "shopping",
+      "question": {
+        "text": "女生想知道什麼？",
+        "audio_text": "女：你們最近賣得最好的商品是什麼？\n男：很多客人都買這款背包。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "哪個商品最便宜",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "哪個商品最受歡迎",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "哪個商品最大",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "哪個商品可以退貨",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_083",
+      "type": "listening",
+      "level": "B1",
+      "topic": "shopping",
+      "question": {
+        "text": "男生想做什麼？",
+        "audio_text": "男：這個昨天買的，可是壞掉了。\n女：你有發票嗎？我們可以幫你換新的。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "試穿商品",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "包裝商品",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "更換商品",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "查詢價格",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_084",
+      "type": "listening",
+      "level": "B1",
+      "topic": "shopping",
+      "question": {
+        "text": "女生來商店做什麼？",
+        "audio_text": "女：我想買生日禮物送朋友，你有推薦的嗎？\n男：如果是送女生，這條項鍊很受歡迎。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "買生日禮物",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "修理商品",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "退貨",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "找試衣間",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_085",
+      "type": "vocabulary",
+      "level": "A1",
+      "topic": "cuisine",
+      "question": {
+        "text": "請選出「包子」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "chá yè",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "bāo zi",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "dì guā",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "bīng kuài",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_086",
+      "type": "vocabulary",
+      "level": "A1",
+      "topic": "cuisine",
+      "question": {
+        "text": "請選出「酒」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "jiǔ",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "cù",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "dì guā",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "chá yè",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_087",
+      "type": "vocabulary",
+      "level": "A2",
+      "topic": "cuisine",
+      "question": {
+        "text": "請選出「冰塊」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "bǐng gān",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "cù",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "cǎo méi",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "bīng kuài",
+          "is_correct": true
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_088",
+      "type": "vocabulary",
+      "level": "A2",
+      "topic": "cuisine",
+      "question": {
+        "text": "請選出「冰淇淋」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "cù",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "bīng qí lín",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "jiǔ",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "chá yè",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_089",
+      "type": "vocabulary",
+      "level": "B1",
+      "topic": "cuisine",
+      "question": {
+        "text": "請選出「餅乾」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "bǐng gān",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "jiǔ",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "cù",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "bīng kuài",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_090",
+      "type": "vocabulary",
+      "level": "B1",
+      "topic": "cuisine",
+      "question": {
+        "text": "請選出「草莓」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "cǎo méi",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "bīng kuài",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "bīng qí lín",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "jiǔ",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_091",
+      "type": "vocabulary",
+      "level": "B2",
+      "topic": "cuisine",
+      "question": {
+        "text": "請選出「茶葉」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "chá yè",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "bīng qí lín",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "cǎo méi",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "fēng mì",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_092",
+      "type": "vocabulary",
+      "level": "B2",
+      "topic": "cuisine",
+      "question": {
+        "text": "請選出「醋」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "chá yè",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "dì guā",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "cù",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "jiǔ",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_093",
+      "type": "vocabulary",
+      "level": "A2",
+      "topic": "cuisine",
+      "question": {
+        "text": "請選出「地瓜」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "bǐng gān",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "dì guā",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "bīng kuài",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "chá yè",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_094",
+      "type": "vocabulary",
+      "level": "A2",
+      "topic": "cuisine",
+      "question": {
+        "text": "請選出「蜂蜜」的正確拼音",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "chá yè",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "fēng mì",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "bǐng gān",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "bīng qí lín",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_095",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "cuisine",
+      "question": {
+        "text": "早餐店裡，店員問你：「今天的包子剛出爐，要不要幫你加辣？」如果你只想吃原味包子，你會怎麼回答？",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "好啊，我最喜歡吃辣包子。",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "不用了，我想吃原味的就好。",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "我昨天買了很多包子回家。",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "這家店的辣醬真的很好吃。",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_096",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "cuisine",
+      "question": {
+        "text": "聚餐時，朋友一直請你喝酒，但你明天一早要開會，所以你會怎麼說？",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "好啊，我今天想喝很多酒。",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "抱歉，我明天還有事情，不能喝酒。",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "我朋友很喜歡研究各種酒。",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "這家店賣的酒好像很有名。",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_097",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "cuisine",
+      "question": {
+        "text": "天氣很熱，你買飲料時不希望冰塊太多，因為你不想味道變淡，你會怎麼跟店員說？",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "可以幫我少放一點冰塊嗎？",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "我每次喝飲料都會加很多冰塊。",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "冰塊融化之後，飲料通常會變甜。",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "我朋友不喜歡飲料裡沒有冰塊。",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_098",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "cuisine",
+      "question": {
+        "text": "妹妹感冒剛好，但她還是一直想吃冰淇淋，媽媽擔心她身體不舒服，所以可能會說：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "如果太冷就不要吃太多冰淇淋。",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "這家店的冰淇淋真的很便宜。",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "我小時候最喜歡巧克力冰淇淋。",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "冰淇淋放太久很容易融化。",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_099",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "cuisine",
+      "question": {
+        "text": "你在圖書館看書時，旁邊的人一直吃餅乾，聲音讓你很難專心，因此你心裡可能會想：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "我也想吃一點餅乾。",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "那個吃餅乾的聲音有點吵。",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "餅乾通常比蛋糕便宜。",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "我昨天在超市買了很多餅乾。",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_100",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "cuisine",
+      "question": {
+        "text": "甜點店推出新的草莓蛋糕後，每天都很多人排隊，因此店員可能會說：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "草莓蛋糕現在非常受歡迎。",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "很多人不喜歡草莓的味道。",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "草莓蛋糕通常只在冬天販售。",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "我昨天不小心把草莓蛋糕打翻了。",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_101",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "cuisine",
+      "question": {
+        "text": "外國朋友第一次喝台灣高山茶後覺得味道很特別，你想向他介紹台灣茶葉，你會怎麼說？",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "台灣很多人不喝茶葉。",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "台灣的茶葉香氣和別的地方不太一樣。",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "茶葉放太久可能會變苦。",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "我家附近最近新開了一間茶葉店。",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_102",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "cuisine",
+      "question": {
+        "text": "你吃水餃時覺得味道太淡，所以想加一點醋，這時你可能會說：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "我不太喜歡醋的味道。",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "可以幫我拿一點醋嗎？",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "醋通常放在冰箱裡保存。",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "我媽媽做菜的時候很常用醋。",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_103",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "cuisine",
+      "question": {
+        "text": "冬天逛夜市時，你聞到烤地瓜的香味，突然很想吃，因此你會對朋友說：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "地瓜其實可以做很多料理。",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "那個烤地瓜聞起來好香。",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "我昨天晚上才剛吃過地瓜。",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "很多人喜歡把地瓜加進火鍋裡。",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_104",
+      "type": "dialogue",
+      "level": "B1",
+      "topic": "cuisine",
+      "question": {
+        "text": "妹妹最近喉嚨不舒服，媽媽泡了一杯蜂蜜水給她喝，你看到後可能會說：",
+        "audio_text": null
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "蜂蜜加水之後會比較甜。",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "很多人覺得蜂蜜對喉嚨比較舒服。",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "我小時候完全不敢喝蜂蜜水。",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "超市最近的蜂蜜好像正在打折。",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_105",
+      "type": "listening",
+      "level": "B1",
+      "topic": "cuisine",
+      "question": {
+        "text": "哥哥最後吃了幾個包子？",
+        "audio_text": "哥哥買了兩個包子當早餐，本來想全部吃完，但後來留了一個給妹妹。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "一個",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "兩個",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "三個",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "沒有吃",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_106",
+      "type": "listening",
+      "level": "B1",
+      "topic": "cuisine",
+      "question": {
+        "text": "爸爸為什麼沒有喝酒？",
+        "audio_text": "爸爸今天晚上要開車，所以聚餐時只點了果汁，沒有喝酒。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "因為他不喜歡聚餐",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "因為他等等要開車",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "因為餐廳沒有賣酒",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "因為他已經喝過咖啡了",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_107",
+      "type": "listening",
+      "level": "B1",
+      "topic": "cuisine",
+      "question": {
+        "text": "妹妹為什麼不要冰塊？",
+        "audio_text": "天氣很冷，所以妹妹買熱奶茶的時候請店員不要加冰塊。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "因為她怕飲料太甜",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "因為她不喜歡奶茶",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "因為天氣很冷",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "因為冰塊太貴",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_108",
+      "type": "listening",
+      "level": "B1",
+      "topic": "cuisine",
+      "question": {
+        "text": "弟弟後來怎麼了？",
+        "audio_text": "弟弟吃完晚餐後又吃了一大盒冰淇淋，結果半夜肚子痛，被媽媽帶去看醫生。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "感冒了",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "肚子痛",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "找不到醫院",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "沒有吃晚餐",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_109",
+      "type": "listening",
+      "level": "B1",
+      "topic": "cuisine",
+      "question": {
+        "text": "姐姐為什麼沒買餅乾？",
+        "audio_text": "姐姐最近在減肥，所以看電影的時候沒有買餅乾，而是買了一瓶水。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "因為她忘了帶錢",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "因為餅乾賣完了",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "因為她最近在減肥",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "因為她比較想喝咖啡",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_110",
+      "type": "listening",
+      "level": "B1",
+      "topic": "cuisine",
+      "question": {
+        "text": "為什麼很多人很早就去排隊？",
+        "audio_text": "這家甜點店的草莓蛋糕每天只賣五十個，所以很多人一開店就去排隊。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "因為蛋糕很便宜",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "因為每天賣的數量不多",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "因為店裡沒有座位",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "因為附近不好停車",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_111",
+      "type": "listening",
+      "level": "B1",
+      "topic": "cuisine",
+      "question": {
+        "text": "奶奶泡茶之後通常會做什麼？",
+        "audio_text": "奶奶每天早上都會先泡茶，再坐在陽台慢慢看報紙。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "去市場買菜",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "開始做晚餐",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "坐在陽台看報紙",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "和朋友去運動",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_112",
+      "type": "listening",
+      "level": "B1",
+      "topic": "cuisine",
+      "question": {
+        "text": "媽媽為什麼請哥哥去超市？",
+        "audio_text": "媽媽做沙拉的時候發現家裡沒有醋了，所以請哥哥去超市買一瓶回來。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "因為沒有醋了",
+          "is_correct": true
+        },
+        {
+          "id": "B",
+          "text": "因為沙拉太難吃",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "因為哥哥想喝飲料",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "因為家裡沒有水果",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_113",
+      "type": "listening",
+      "level": "B1",
+      "topic": "cuisine",
+      "question": {
+        "text": "爺爺吃地瓜的時候通常在做什麼？",
+        "audio_text": "冬天的時候，爺爺很喜歡一邊看電視，一邊吃熱熱的烤地瓜。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "洗衣服",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "看電視",
+          "is_correct": true
+        },
+        {
+          "id": "C",
+          "text": "打電話",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "看醫生",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
+    },
+    {
+      "id": "manual_114",
+      "type": "listening",
+      "level": "B1",
+      "topic": "cuisine",
+      "question": {
+        "text": "媽媽為什麼泡蜂蜜水給妹妹？",
+        "audio_text": "妹妹感冒後一直咳嗽，媽媽每天晚上都會泡蜂蜜水給她喝，希望她快點好起來。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": "因為妹妹肚子餓",
+          "is_correct": false
+        },
+        {
+          "id": "B",
+          "text": "因為妹妹睡不著",
+          "is_correct": false
+        },
+        {
+          "id": "C",
+          "text": "因為妹妹感冒咳嗽",
+          "is_correct": true
+        },
+        {
+          "id": "D",
+          "text": "因為妹妹不想喝牛奶",
+          "is_correct": false
+        }
+      ],
+      "created_at": "2026-05-20T02:58:51Z"
     }
   ]
 }

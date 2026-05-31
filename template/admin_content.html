@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#ec5b13",
+            "secondary": "#0d9488",
+          },
+          fontFamily: { "display": ["Plus Jakarta Sans"] },
+        },
+      },
+    }
+  </script>
+  <title>練習內容管理 - 華語知識王</title>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased">
+<div class="max-w-4xl mx-auto bg-white min-h-screen shadow-xl">
+
+  <!-- Header -->
+  <header class="flex items-center px-6 py-4 border-b border-slate-100 sticky top-0 bg-white z-40">
+    <a href="/" class="w-10 h-10 rounded-full hover:bg-slate-100 flex items-center justify-center mr-4 transition-colors">
+      <span class="material-symbols-outlined text-slate-400">arrow_back</span>
+    </a>
+    <div class="flex-1">
+      <h1 class="text-xl font-bold">練習內容管理</h1>
+      <p class="text-xs text-slate-400">編輯各主題的詞彙、對話、聽力內容</p>
+    </div>
+    <button id="addBtn" onclick="openAddModal()"
+      class="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold px-4 py-2 rounded-xl transition-colors text-sm">
+      <span class="material-symbols-outlined text-sm">add</span>
+      新增
+    </button>
+  </header>
+
+  <main class="p-6">
+    <!-- Topic Tabs -->
+    <div class="grid grid-cols-4 gap-2 mb-6">
+      <button onclick="setTopic('cuisine')" id="tab-cuisine"
+        class="topic-tab flex flex-col items-center gap-1 p-3 rounded-xl border-2 transition-all text-sm font-bold active-topic">
+        <span class="material-symbols-outlined">restaurant</span>
+        <span>美食</span>
+      </button>
+      <button onclick="setTopic('shopping')" id="tab-shopping"
+        class="topic-tab flex flex-col items-center gap-1 p-3 rounded-xl border-2 transition-all text-sm font-bold">
+        <span class="material-symbols-outlined">shopping_bag</span>
+        <span>購物</span>
+      </button>
+      <button onclick="setTopic('tourism')" id="tab-tourism"
+        class="topic-tab flex flex-col items-center gap-1 p-3 rounded-xl border-2 transition-all text-sm font-bold">
+        <span class="material-symbols-outlined">flight_takeoff</span>
+        <span>旅遊</span>
+      </button>
+      <button onclick="setTopic('worklife')" id="tab-worklife"
+        class="topic-tab flex flex-col items-center gap-1 p-3 rounded-xl border-2 transition-all text-sm font-bold">
+        <span class="material-symbols-outlined">work</span>
+        <span>職場</span>
+      </button>
+    </div>
+
+    <!-- Type Tabs -->
+    <div class="flex gap-2 mb-6 border-b border-slate-100 pb-2">
+      <button onclick="setType('vocabulary')" id="typetab-vocabulary"
+        class="type-tab flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-sm transition-all active-type">
+        <span class="material-symbols-outlined text-sm">menu_book</span>基礎詞彙
+      </button>
+      <button onclick="setType('dialogue')" id="typetab-dialogue"
+        class="type-tab flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-sm transition-all">
+        <span class="material-symbols-outlined text-sm">forum</span>情境對話
+      </button>
+      <button onclick="setType('listening')" id="typetab-listening"
+        class="type-tab flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-sm transition-all">
+        <span class="material-symbols-outlined text-sm">headphones</span>聽力測驗
+      </button>
+    </div>
+
+    <!-- Items list -->
+    <div id="itemsList" class="space-y-3">
+      <div class="text-center text-slate-400 py-10">載入中...</div>
+    </div>
+  </main>
+</div>
+
+<!-- ======= MODAL ======= -->
+<div id="modal" class="fixed inset-0 bg-black/40 z-50 hidden flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] flex flex-col">
+    <div class="flex items-center justify-between px-6 py-4 border-b border-slate-100">
+      <h2 id="modalTitle" class="text-lg font-bold">新增詞彙</h2>
+      <button onclick="closeModal()" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100">
+        <span class="material-symbols-outlined text-slate-400">close</span>
+      </button>
+    </div>
+    <div id="modalBody" class="flex-1 overflow-y-auto p-6 space-y-4"></div>
+    <div class="px-6 py-4 border-t border-slate-100 flex gap-3 justify-end">
+      <button onclick="closeModal()" class="px-4 py-2 rounded-xl border border-slate-200 text-sm font-semibold hover:bg-slate-50">取消</button>
+      <button onclick="saveItem()" class="px-4 py-2 rounded-xl bg-primary text-white text-sm font-bold hover:bg-primary/90">儲存</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-sm font-semibold px-5 py-3 rounded-full shadow-lg z-50 hidden transition-all"></div>
+
+<style>
+  .active-topic { background-color: #fff7ed; border-color: #ec5b13; color: #ec5b13; }
+  .topic-tab:not(.active-topic) { background-color: white; border-color: #e2e8f0; color: #64748b; }
+  .active-type { background-color: #fff7ed; color: #ec5b13; }
+  .type-tab:not(.active-type) { color: #64748b; }
+  .type-tab:not(.active-type):hover { background-color: #f8fafc; }
+</style>
+
+<script>
+let currentTopic = 'cuisine';
+let currentType = 'vocabulary';
+let editingId = null;
+let currentItems = [];
+
+const TOPIC_LABELS = { cuisine:'美食', shopping:'購物', tourism:'旅遊', worklife:'職場' };
+const TYPE_LABELS = { vocabulary:'基礎詞彙', dialogue:'情境對話', listening:'聽力測驗' };
+
+function setTopic(topic) {
+  currentTopic = topic;
+  document.querySelectorAll('.topic-tab').forEach(t => t.classList.remove('active-topic'));
+  document.getElementById('tab-' + topic).classList.add('active-topic');
+  loadItems();
+}
+
+function setType(type) {
+  currentType = type;
+  document.querySelectorAll('.type-tab').forEach(t => t.classList.remove('active-type'));
+  document.getElementById('typetab-' + type).classList.add('active-type');
+  loadItems();
+}
+
+async function loadItems() {
+  const list = document.getElementById('itemsList');
+  list.innerHTML = '<div class="text-center text-slate-400 py-10">載入中...</div>';
+  try {
+    const res = await fetch(`/api/content/${currentTopic}/${currentType}`);
+    const data = await res.json();
+    currentItems = data.items || [];
+    renderList();
+  } catch (e) {
+    list.innerHTML = '<div class="text-center text-red-400 py-10">載入失敗</div>';
+  }
+}
+
+function renderList() {
+  const list = document.getElementById('itemsList');
+  if (currentItems.length === 0) {
+    list.innerHTML = `<div class="text-center py-16 text-slate-400">
+      <span class="material-symbols-outlined text-5xl block mb-3">inventory_2</span>
+      <p class="font-semibold">尚無內容</p>
+      <p class="text-sm mt-1">點擊「新增」按鈕加入${TYPE_LABELS[currentType]}</p>
+    </div>`;
+    return;
+  }
+
+  list.innerHTML = currentItems.map((item, i) => {
+    let preview = '';
+    if (currentType === 'vocabulary') {
+      preview = `<span class="text-xl font-black text-primary">${item.word}</span>
+        <span class="text-sm text-slate-500 ml-2">${item.pinyin}</span>
+        <span class="ml-2 text-sm text-slate-600">${item.english}</span>`;
+    } else if (currentType === 'dialogue') {
+      const correct = (item.options || []).find(o => o.is_correct);
+      preview = `<div class="font-semibold text-slate-800 text-sm">${item.title || ''}</div>
+        <div class="text-xs text-slate-500 mt-0.5 line-clamp-1">${item.question || ''}</div>`;
+    } else {
+      preview = `<div class="text-sm font-semibold text-slate-700 line-clamp-1">${item.audio_text || ''}</div>
+        <div class="text-xs text-slate-500 mt-0.5">${item.question || ''}</div>`;
+    }
+
+    const correctCount = currentType !== 'vocabulary'
+      ? `<span class="text-xs text-slate-400">${(item.options||[]).length} 個選項</span>` : '';
+
+    return `<div class="flex items-center gap-4 bg-slate-50 rounded-xl px-4 py-3 border border-slate-100 hover:border-primary/30 transition-colors">
+      <div class="w-7 h-7 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold text-slate-500 shrink-0">${i+1}</div>
+      <div class="flex-1 min-w-0">${preview}${correctCount}</div>
+      <div class="flex gap-1 shrink-0">
+        <button onclick="openEditModal('${item.id}')" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-blue-50 text-slate-400 hover:text-blue-600 transition-colors">
+          <span class="material-symbols-outlined text-sm">edit</span>
+        </button>
+        <button onclick="deleteItem('${item.id}')" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-red-50 text-slate-400 hover:text-red-500 transition-colors">
+          <span class="material-symbols-outlined text-sm">delete</span>
+        </button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ======= MODAL =======
+
+function openAddModal() {
+  editingId = null;
+  document.getElementById('modalTitle').textContent = `新增${TYPE_LABELS[currentType]}`;
+  renderModalForm(null);
+  document.getElementById('modal').classList.remove('hidden');
+}
+
+function openEditModal(id) {
+  editingId = id;
+  const item = currentItems.find(i => i.id === id);
+  document.getElementById('modalTitle').textContent = `編輯${TYPE_LABELS[currentType]}`;
+  renderModalForm(item);
+  document.getElementById('modal').classList.remove('hidden');
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.add('hidden');
+}
+
+function renderModalForm(item) {
+  const body = document.getElementById('modalBody');
+  if (currentType === 'vocabulary') {
+    body.innerHTML = `
+      <div>
+        <label class="block text-xs font-bold text-slate-500 mb-1">詞語 *</label>
+        <input id="f_word" value="${item?.word||''}" placeholder="例：菜單"
+          class="w-full px-3 py-2 rounded-xl border-2 border-slate-200 focus:border-primary focus:outline-none text-sm"/>
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-slate-500 mb-1">拼音 *</label>
+        <input id="f_pinyin" value="${item?.pinyin||''}" placeholder="例：càidān"
+          class="w-full px-3 py-2 rounded-xl border-2 border-slate-200 focus:border-primary focus:outline-none text-sm"/>
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-slate-500 mb-1">英文 *</label>
+        <input id="f_english" value="${item?.english||''}" placeholder="例：menu"
+          class="w-full px-3 py-2 rounded-xl border-2 border-slate-200 focus:border-primary focus:outline-none text-sm"/>
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-slate-500 mb-1">例句（選填）</label>
+        <input id="f_example" value="${item?.example||''}" placeholder="例：請給我看菜單。"
+          class="w-full px-3 py-2 rounded-xl border-2 border-slate-200 focus:border-primary focus:outline-none text-sm"/>
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-slate-500 mb-1">例句翻譯（選填）</label>
+        <input id="f_example_translation" value="${item?.example_translation||''}" placeholder="例：Please show me the menu."
+          class="w-full px-3 py-2 rounded-xl border-2 border-slate-200 focus:border-primary focus:outline-none text-sm"/>
+      </div>`;
+  } else if (currentType === 'dialogue') {
+    const opts = item?.options || [{text:'',is_correct:true},{text:'',is_correct:false},{text:'',is_correct:false},{text:'',is_correct:false}];
+    body.innerHTML = `
+      <div>
+        <label class="block text-xs font-bold text-slate-500 mb-1">標題 *</label>
+        <input id="f_title" value="${item?.title||''}" placeholder="例：餐廳訂位"
+          class="w-full px-3 py-2 rounded-xl border-2 border-slate-200 focus:border-primary focus:outline-none text-sm"/>
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-slate-500 mb-1">情境題目 *</label>
+        <textarea id="f_question" rows="3" placeholder="例：服務員說：「請問幾位？」你應該怎麼回答？"
+          class="w-full px-3 py-2 rounded-xl border-2 border-slate-200 focus:border-primary focus:outline-none text-sm resize-none">${item?.question||''}</textarea>
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-slate-500 mb-2">選項（勾選正確答案）*</label>
+        ${opts.map((o, i) => `
+          <div class="flex items-center gap-2 mb-2">
+            <input type="radio" name="correct_opt" value="${i}" id="radio_${i}" ${o.is_correct?'checked':''} class="accent-primary"/>
+            <input id="f_opt_${i}" value="${o.text||''}" placeholder="選項 ${i+1}"
+              class="flex-1 px-3 py-2 rounded-xl border-2 border-slate-200 focus:border-primary focus:outline-none text-sm"/>
+          </div>`).join('')}
+      </div>`;
+  } else {
+    const opts = item?.options || [{text:'',is_correct:true},{text:'',is_correct:false},{text:'',is_correct:false},{text:'',is_correct:false}];
+    body.innerHTML = `
+      <div>
+        <label class="block text-xs font-bold text-slate-500 mb-1">聽力文字（播放內容）*</label>
+        <textarea id="f_audio_text" rows="3" placeholder="例：服務員，請給我一碗牛肉麵，不要加辣，謝謝。"
+          class="w-full px-3 py-2 rounded-xl border-2 border-slate-200 focus:border-primary focus:outline-none text-sm resize-none">${item?.audio_text||''}</textarea>
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-slate-500 mb-1">題目（考學生的問題）*</label>
+        <input id="f_question" value="${item?.question||''}" placeholder="例：說話者點了什麼？有什麼特別要求？"
+          class="w-full px-3 py-2 rounded-xl border-2 border-slate-200 focus:border-primary focus:outline-none text-sm"/>
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-slate-500 mb-2">選項（勾選正確答案）*</label>
+        ${opts.map((o, i) => `
+          <div class="flex items-center gap-2 mb-2">
+            <input type="radio" name="correct_opt" value="${i}" id="radio_${i}" ${o.is_correct?'checked':''} class="accent-primary"/>
+            <input id="f_opt_${i}" value="${o.text||''}" placeholder="選項 ${i+1}"
+              class="flex-1 px-3 py-2 rounded-xl border-2 border-slate-200 focus:border-primary focus:outline-none text-sm"/>
+          </div>`).join('')}
+      </div>`;
+  }
+}
+
+async function saveItem() {
+  let data = {};
+  if (currentType === 'vocabulary') {
+    const word = document.getElementById('f_word')?.value.trim();
+    const pinyin = document.getElementById('f_pinyin')?.value.trim();
+    const english = document.getElementById('f_english')?.value.trim();
+    if (!word || !pinyin || !english) { showToast('請填寫詞語、拼音、英文'); return; }
+    data = {
+      word, pinyin, english,
+      example: document.getElementById('f_example')?.value.trim() || '',
+      example_translation: document.getElementById('f_example_translation')?.value.trim() || ''
+    };
+  } else if (currentType === 'dialogue') {
+    const title = document.getElementById('f_title')?.value.trim();
+    const question = document.getElementById('f_question')?.value.trim();
+    if (!title || !question) { showToast('請填寫標題和題目'); return; }
+    const correctIdx = parseInt(document.querySelector('input[name="correct_opt"]:checked')?.value ?? 0);
+    const options = [0,1,2,3].map(i => ({
+      text: document.getElementById(`f_opt_${i}`)?.value.trim() || '',
+      is_correct: i === correctIdx
+    }));
+    if (options.some(o => !o.text)) { showToast('請填寫所有選項'); return; }
+    data = { title, question, options };
+  } else {
+    const audio_text = document.getElementById('f_audio_text')?.value.trim();
+    const question = document.getElementById('f_question')?.value.trim();
+    if (!audio_text || !question) { showToast('請填寫聽力文字和題目'); return; }
+    const correctIdx = parseInt(document.querySelector('input[name="correct_opt"]:checked')?.value ?? 0);
+    const options = [0,1,2,3].map(i => ({
+      text: document.getElementById(`f_opt_${i}`)?.value.trim() || '',
+      is_correct: i === correctIdx
+    }));
+    if (options.some(o => !o.text)) { showToast('請填寫所有選項'); return; }
+    data = { audio_text, question, options };
+  }
+
+  try {
+    let res;
+    if (editingId) {
+      res = await fetch(`/api/content/${currentTopic}/${currentType}/${editingId}`, {
+        method: 'PUT', headers: {'Content-Type':'application/json'}, body: JSON.stringify(data)
+      });
+    } else {
+      res = await fetch(`/api/content/${currentTopic}/${currentType}`, {
+        method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(data)
+      });
+    }
+    if (res.ok) {
+      closeModal();
+      loadItems();
+      showToast(editingId ? '已更新' : '已新增');
+    } else {
+      showToast('儲存失敗，請再試一次');
+    }
+  } catch (e) {
+    showToast('網路錯誤');
+  }
+}
+
+async function deleteItem(id) {
+  if (!confirm('確定要刪除這筆內容？')) return;
+  try {
+    const res = await fetch(`/api/content/${currentTopic}/${currentType}/${id}`, { method: 'DELETE' });
+    if (res.ok) { loadItems(); showToast('已刪除'); }
+    else showToast('刪除失敗');
+  } catch (e) {
+    showToast('網路錯誤');
+  }
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.remove('hidden');
+  setTimeout(() => t.classList.add('hidden'), 2500);
+}
+
+// Close modal on backdrop click
+document.getElementById('modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// Init
+loadItems();
+</script>
+</body>
+</html>

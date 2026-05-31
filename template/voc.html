@@ -1,208 +1,169 @@
 <!DOCTYPE html>
-
-<html lang="zh-Hant"><head>
+<html lang="zh-Hant">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Mandarin Pulse - Vocabulary Study</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "on-tertiary": "#ffffff",
-              "on-primary-fixed-variant": "#7f2b00",
-              "secondary-dim": "#833b00",
-              "on-secondary-fixed": "#115e59",
-              "tertiary": "#3b82f6",
-              "on-secondary-container": "#115e59",
-              "surface-container-low": "#f8f6f6",
-              "tertiary-container": "#dbeafe",
-              "inverse-surface": "#1e293b",
-              "surface-tint": "#ec5b13",
-              "outline-variant": "#cbd5e1",
-              "on-tertiary-fixed-variant": "#1e3a8a",
-              "error-dim": "#9f0519",
-              "primary-dim": "#8e3000",
-              "on-tertiary-container": "#1e40af",
-              "primary-fixed": "#ffdbce",
-              "surface-bright": "#ffffff",
-              "primary-container": "#ffedd5",
-              "inverse-on-surface": "#f8fafc",
-              "on-secondary-fixed-variant": "#134e4a",
-              "tertiary-fixed": "#dbeafe",
-              "tertiary-fixed-dim": "#bfdbfe",
-              "on-surface": "#0f172a",
-              "primary": "#ec5b13",
-              "surface-container-highest": "#e0e0e0",
-              "on-primary-fixed": "#370e00",
-              "surface-container-lowest": "#ffffff",
-              "on-surface-variant": "#475569",
-              "inverse-primary": "#ffb599",
-              "on-primary": "#ffffff",
-              "surface-container-high": "#e8e8e8",
-              "on-tertiary-fixed": "#1e40af",
-              "error": "#ef4444",
-              "surface": "#ffffff",
-              "secondary": "#0d9488",
-              "on-primary-container": "#7c2d12",
-              "surface-dim": "#f8f6f6",
-              "secondary-fixed": "#ccfbf1",
-              "on-secondary": "#ffffff",
-              "surface-variant": "#f1f5f9",
-              "primary-fixed-dim": "#ffb599",
-              "on-error": "#ffffff",
-              "on-background": "#0f172a",
-              "on-error-container": "#991b1b",
-              "secondary-fixed-dim": "#99f6e4",
-              "secondary-container": "#ccfbf1",
-              "background": "#f8f6f6",
-              "surface-container": "#f1f1f1",
-              "error-container": "#fee2e2",
-              "outline": "#e2e8f0"
-            },
-            fontFamily: {
-              "headline": ["Plus Jakarta Sans"],
-              "body": ["Plus Jakarta Sans"],
-              "label": ["Plus Jakarta Sans"]
-            },
-            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-          },
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#ec5b13", "secondary": "#0d9488", "tertiary": "#3b82f6",
+          "primary-container": "#ffedd5", "secondary-container": "#ccfbf1",
+          "on-surface": "#0f172a", "on-surface-variant": "#475569",
+          "surface": "#ffffff", "background": "#f8f6f6",
         },
-      }
-    </script>
+        fontFamily: { "body": ["Plus Jakarta Sans"] },
+        borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+      },
+    },
+  }
+</script>
 <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .flashcard-gradient {
-            background: linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.8) 100%);
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-        }
-    </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
-<body class="bg-background font-body text-on-background min-h-screen flex flex-col">
-<!-- TopAppBar -->
-<header class="bg-white dark:bg-slate-950 flex justify-between items-center px-4 h-16 w-full rounded-b-lg border-b border-slate-100 dark:border-slate-800 shadow-sm sticky top-0 z-50">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border-2 border-primary">
-<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="User profile avatar close up" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUoV2usojfGPjOJb5aR5u8xin-8PvED42O982eQmAG9fVgPiwSDVKvk7AMYQYU3_h8jLkVuYaoPNOGXUBQcOSrc0HZV_XAqvagtKkaXCqur_Dn0fZqN-8U5iRYlizCCiRD2Cq2mU6yjLkwcdDadOh_o4kgyjsTyZG76_kr-JMBZABDLKjXQxihapwY-NJXrGL-7Iig5l0kja-Yd3dqhMiB3GpuFMpJ8vuln7D-Aw68r6WaXjcRJj_507MODpyGRMQlJHtmwXT03HU0"/>
-</div>
-<h1 class="Mandarin Pulse text-xl font-black text-orange-600 dark:text-orange-500 font-['Plus_Jakarta_Sans']">Mandarin Pulse</h1>
-</div>
-<button class="transition-transform active:scale-95 p-2 rounded-full hover:bg-slate-50 dark:hover:bg-slate-900 text-slate-500">
-<span class="material-symbols-outlined" data-icon="settings">settings</span>
-</button>
+  body { font-family: 'Plus Jakarta Sans', sans-serif; min-height: max(884px, 100dvh); }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .glass-card { background: rgba(255,255,255,0.75); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.5); }
+  .flashcard { perspective: 1000px; }
+  .flashcard-inner { transition: transform 0.55s cubic-bezier(.4,0,.2,1); transform-style: preserve-3d; }
+  .flashcard-inner.flipped { transform: rotateY(180deg); }
+  .flashcard-front, .flashcard-back { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+  .flashcard-back { transform: rotateY(180deg); }
+</style>
+</head>
+<body class="bg-background font-body text-on-surface min-h-screen flex flex-col">
+
+<!-- Header -->
+<header class="bg-white flex justify-between items-center px-4 h-16 w-full border-b border-slate-100 shadow-sm sticky top-0 z-50">
+  <div class="flex items-center gap-3">
+    <a href="/topic/{{ topic }}" class="w-10 h-10 rounded-full hover:bg-slate-50 flex items-center justify-center transition-transform active:scale-95">
+      <span class="material-symbols-outlined text-on-surface">arrow_back</span>
+    </a>
+    <h1 class="text-xl font-black text-primary">Vocabulary</h1>
+  </div>
+  <div class="flex items-center gap-2 bg-orange-50 px-3 py-1.5 rounded-full">
+    <span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings:'FILL' 1;">menu_book</span>
+    <span class="text-primary font-bold text-sm">{{ current_idx + 1 }} / {{ total }}</span>
+  </div>
 </header>
-<main class="flex-grow flex flex-col items-center px-6 py-8 max-w-2xl mx-auto w-full mb-24">
-<!-- Progress Section -->
-<div class="w-full mb-10">
-<div class="flex justify-between items-end mb-3">
-<span class="text-xs font-bold tracking-widest uppercase text-on-surface-variant">Current Session</span>
-<span class="text-sm font-extrabold text-primary">5 / 20 <span class="text-on-surface-variant font-medium">words</span></span>
-</div>
-<div class="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
-<div class="h-full bg-primary w-1/4 rounded-full transition-all duration-500"></div>
-</div>
-</div>
-<!-- Asymmetric Bento Header (Visual Flair) -->
-<div class="grid grid-cols-3 gap-4 w-full mb-8">
-<div class="col-span-2 bg-teal-700 text-white p-5 rounded-[24px] flex flex-col justify-between shadow-lg h-32 relative overflow-hidden group">
-<div class="relative z-10">
-<p class="text-[10px] uppercase tracking-[0.2em] font-bold opacity-80 mb-1">Current Topic</p>
-<h2 class="text-xl font-bold">基本詞彙練習</h2>
-</div>
-<div class="relative z-10 flex items-center gap-1 text-xs font-semibold bg-white/20 w-fit px-2 py-1 rounded-full">
-<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
-                    Level A1
-                </div>
-<div class="absolute -right-4 -bottom-4 opacity-20 transform group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-8xl" data-icon="translate">translate</span>
-</div>
-</div>
-<div class="bg-orange-600 text-white p-5 rounded-[24px] flex flex-col items-center justify-center shadow-lg h-32 transition-transform active:scale-95 cursor-pointer">
-<span class="material-symbols-outlined text-4xl mb-1" data-icon="timer">timer</span>
-<span class="text-xs font-bold">12:45</span>
-</div>
-</div>
-<!-- Main Flashcard -->
-<div class="w-full aspect-[3/4] max-h-[500px] relative rounded-[32px] overflow-hidden shadow-xl bg-white border-l-[6px] border-primary group">
-<!-- Background Image with Gradient Overlay -->
-<div class="absolute inset-0 w-full h-full">
-<img alt="Travel scenery" class="w-full h-full object-cover" data-alt="Vibrant tropical landscape with turquoise water" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDF2PXYzIh1yv7WOPRNm9IHTxf7GG2BQf0jcOesLn5-ZEnJhCz-NzUf5hgHB-PEKYsgAw9osehC6BudGbL9Bb6-5WZeG6ApDT03BqWQtHexA-t-97yMkdDz015MXBBJXLeQp6DJgfyyLXFmHXWYCSIefLSDBUN_bwYgPuZ_WIMcK-8P9-3utzRhmkrw3jBlWZ3gOQlPMr5MOyVUNMOxik0N96rXrvV8NU7iPa9UcDvKHCYb85zUB7ro3UYitD4kIx1AjyWDvN3_GwJ5"/>
-<div class="absolute inset-0 flashcard-gradient"></div>
-</div>
-<!-- Card Content Overlay -->
-<div class="absolute inset-0 flex flex-col justify-between p-8">
-<div class="flex justify-between items-start">
-<div class="glass-card px-4 py-2 rounded-2xl flex items-center gap-2">
-<span class="material-symbols-outlined text-primary" data-icon="category">category</span>
-<span class="text-xs font-extrabold text-on-surface uppercase tracking-wider">Travel</span>
-</div>
-<button class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center shadow-lg hover:scale-110 active:scale-90 transition-all">
-<span class="material-symbols-outlined" data-icon="volume_up">volume_up</span>
-</button>
-</div>
-<div class="flex flex-col items-center text-center">
-<h3 class="text-white text-6xl font-black mb-4 tracking-tight">旅遊</h3>
-<div class="glass-card px-6 py-3 rounded-2xl">
-<p class="text-primary text-xl font-bold tracking-wide">Lǚyóu</p>
-<div class="h-px w-full bg-slate-200 my-2"></div>
-<p class="text-on-surface font-semibold">To Travel / Tourism</p>
-</div>
-</div>
-<div class="flex justify-center">
-<div class="flex gap-2">
-<div class="w-2 h-2 rounded-full bg-white/40"></div>
-<div class="w-2 h-2 rounded-full bg-white"></div>
-<div class="w-2 h-2 rounded-full bg-white/40"></div>
-<div class="w-2 h-2 rounded-full bg-white/40"></div>
-</div>
-</div>
-</div>
-</div>
-<!-- Action Buttons -->
-<div class="grid grid-cols-2 gap-4 w-full mt-10">
-<button class="flex items-center justify-center gap-3 bg-surface border-2 border-slate-100 py-4 rounded-2xl font-bold text-on-surface-variant hover:bg-slate-50 transition-all active:scale-[0.98]">
-<span class="material-symbols-outlined text-error" data-icon="refresh">refresh</span>
-                Keep Practicing
-            </button>
-<button class="flex items-center justify-center gap-3 bg-primary py-4 rounded-2xl font-bold text-white shadow-lg shadow-primary/20 hover:bg-primary-dim transition-all active:scale-[0.98]">
-<span class="material-symbols-outlined" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                Mastered
-            </button>
-</div>
+
+<main class="flex-grow flex flex-col items-center px-4 py-6 max-w-2xl mx-auto w-full mb-24">
+
+  <!-- Progress bar -->
+  <div class="w-full mb-6">
+    <div class="flex justify-between text-xs font-bold text-on-surface-variant mb-2">
+      <span>基礎詞彙練習</span>
+      <span>{{ current_idx + 1 }} / {{ total }} 個詞語</span>
+    </div>
+    <div class="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+      <div class="h-full bg-primary rounded-full transition-all duration-500"
+           style="width: {{ ((current_idx + 1) / total * 100) | int if total > 0 else 0 }}%;"></div>
+    </div>
+  </div>
+
+  <!-- Score feedback toast -->
+  {% if last_points is defined and last_points >= 0 %}
+  <div class="mb-4 {% if last_correct == 1 %}bg-green-50 border-green-200 text-green-700{% else %}bg-slate-100 border-slate-200 text-slate-500{% endif %} border rounded-xl px-4 py-2 text-sm font-bold flex items-center gap-2 w-full justify-center">
+    {% if last_correct == 1 %}
+    <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>
+    已學會！+{{ last_points }} 分
+    {% else %}
+    <span class="material-symbols-outlined text-sm">refresh</span>
+    繼續練習中...
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <!-- Flashcard -->
+  <div class="flashcard w-full cursor-pointer" onclick="flipCard()" style="height: 340px;">
+    <div class="flashcard-inner relative w-full h-full" id="flashcardInner">
+
+      <!-- Front: Word -->
+      <div class="flashcard-front absolute inset-0 bg-white rounded-3xl shadow-xl border-l-4 border-primary flex flex-col items-center justify-center p-8 overflow-hidden">
+        <div class="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-full -mr-20 -mt-20"></div>
+        <span class="text-6xl font-black text-on-surface mb-3 tracking-tight relative z-10">{{ item.word }}</span>
+        <div class="flex items-center gap-1.5 text-on-surface-variant text-xs font-semibold mt-2 relative z-10">
+          <span class="material-symbols-outlined text-sm">touch_app</span>
+          點擊翻面查看拼音與意思
+        </div>
+      </div>
+
+      <!-- Back: Pinyin + English + Example -->
+      <div class="flashcard-back absolute inset-0 bg-gradient-to-br from-primary to-orange-400 rounded-3xl shadow-xl flex flex-col items-center justify-center p-8 text-center overflow-hidden">
+        <div class="absolute bottom-0 right-0 text-white/10 text-9xl leading-none select-none">文</div>
+        <div class="relative z-10 flex flex-col items-center gap-3 w-full">
+          <span class="text-5xl font-black text-white tracking-tight">{{ item.word }}</span>
+          <div class="bg-white/20 backdrop-blur px-5 py-2 rounded-full">
+            <span class="text-white font-bold text-lg tracking-wide">{{ item.pinyin }}</span>
+          </div>
+          <span class="text-white/90 font-semibold text-base">{{ item.english }}</span>
+          {% if item.example %}
+          <div class="glass-card rounded-2xl px-4 py-3 mt-1 w-full">
+            <p class="text-white font-semibold text-sm">{{ item.example }}</p>
+            <p class="text-white/75 text-xs mt-1">{{ item.example_translation }}</p>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="grid grid-cols-2 gap-4 w-full mt-6">
+    <form action="/voc_next" method="POST">
+      <input type="hidden" name="action" value="practice"/>
+      <button type="submit"
+        class="w-full flex items-center justify-center gap-2 bg-white border-2 border-slate-200 py-4 rounded-2xl font-bold text-on-surface-variant hover:bg-slate-50 transition-all active:scale-[0.98] text-sm">
+        <span class="material-symbols-outlined text-slate-400">refresh</span>
+        再練習
+      </button>
+    </form>
+    <form action="/voc_next" method="POST">
+      <input type="hidden" name="action" value="mastered"/>
+      <button type="submit"
+        class="w-full flex items-center justify-center gap-2 bg-primary py-4 rounded-2xl font-bold text-white shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all active:scale-[0.98] text-sm">
+        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">check_circle</span>
+        已學會
+      </button>
+    </form>
+  </div>
+
+  <!-- Score display -->
+  <div class="mt-4 flex items-center gap-2 text-sm text-on-surface-variant">
+    <span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings:'FILL' 1;">emoji_events</span>
+    <span>本次得分：<strong class="text-primary">{{ player_score }}</strong> 分</span>
+  </div>
+
 </main>
-<!-- BottomNavBar -->
-<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center h-20 px-4 pb-safe bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800 shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
-<a class="flex flex-col items-center justify-center text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-900/20 rounded-xl px-3 py-1 transition-all duration-200 ease-in-out" href="#">
-<span class="material-symbols-outlined" data-icon="school" style="font-variation-settings: 'FILL' 1;">school</span>
-<span class="font-['Plus_Jakarta_Sans'] text-xs font-semibold">Study</span>
-</a>
-<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-teal-600 dark:hover:text-teal-400 transition-all duration-200 ease-in-out" href="/practice/{{ session.get('topic', 'cuisine') }}/dia">
-<span class="material-symbols-outlined" data-icon="forum">forum</span>
-<span class="font-['Plus_Jakarta_Sans'] text-xs font-semibold">Dialogue</span>
-</a>
-<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-teal-600 dark:hover:text-teal-400 transition-all duration-200 ease-in-out" href="/practice/{{ session.get('topic', 'cuisine') }}/lis">
-<span class="material-symbols-outlined" data-icon="hearing">hearing</span>
-<span class="font-['Plus_Jakarta_Sans'] text-xs font-semibold">Listen</span>
-</a>
-<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-teal-600 dark:hover:text-teal-400 transition-all duration-200 ease-in-out" href="/settings">
-<span class="material-symbols-outlined" data-icon="person">person</span>
-<span class="font-['Plus_Jakarta_Sans'] text-xs font-semibold">Profile</span>
-</a>
+
+<!-- Bottom Nav -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center h-20 px-4 bg-white border-t border-slate-100 shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
+  <a href="/" class="flex flex-col items-center justify-center text-slate-400 px-4 py-1">
+    <span class="material-symbols-outlined">home</span>
+    <span class="text-[10px] font-semibold">Home</span>
+  </a>
+  <div class="flex flex-col items-center justify-center text-primary bg-orange-50 rounded-xl px-4 py-1">
+    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">menu_book</span>
+    <span class="text-[10px] font-bold">詞彙</span>
+  </div>
+  <a href="/practice/{{ topic }}/dia" class="flex flex-col items-center justify-center text-slate-400 px-4 py-1">
+    <span class="material-symbols-outlined">forum</span>
+    <span class="text-[10px] font-semibold">對話</span>
+  </a>
+  <a href="/practice/{{ topic }}/lis" class="flex flex-col items-center justify-center text-slate-400 px-4 py-1">
+    <span class="material-symbols-outlined">headphones</span>
+    <span class="text-[10px] font-semibold">聽力</span>
+  </a>
 </nav>
-</body></html>
+
+<script>
+function flipCard() {
+  document.getElementById('flashcardInner').classList.toggle('flipped');
+}
+</script>
+</body>
+</html>

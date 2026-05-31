@@ -5,7 +5,8 @@
 <title>華語知識王 - Matchmaking</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
     tailwind.config = {
         darkMode: "class",
@@ -13,6 +14,7 @@
             extend: {
                 colors: {
                     "primary": "#ec5b13",
+                    "secondary": "#0d9488",
                     "background-light": "#f8f6f6",
                     "background-dark": "#221610",
                 },
@@ -48,82 +50,105 @@
 <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto">
 
 <!-- Top Header -->
-<div class="flex items-center bg-background-light dark:bg-background-dark p-4 justify-between sticky top-0 z-10 border-b border-primary/10">
-    <a href="/" class="text-primary flex size-12 shrink-0 items-center justify-start cursor-pointer">
-        <span class="material-symbols-outlined text-3xl">arrow_back</span>
-    </a>
-    <h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 text-center">華語知識王</h2>
-    <button onclick="showHelp()" class="flex size-12 cursor-pointer items-center justify-center rounded-xl bg-transparent text-primary">
-        <span class="material-symbols-outlined text-2xl">help</span>
-    </button>
+<header class="flex justify-between items-center px-4 h-16 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shadow-sm dark:shadow-none sticky top-0 z-10">
+<div class="flex items-center gap-3">
+<a href="/" class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-slate-50 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-slate-600">arrow_back</span>
+</a>
+<h1 class="text-xl font-black text-orange-600 dark:text-orange-400">華語知識王</h1>
 </div>
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
+<img alt="user profile picture" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAnpXlRBOKHaLgM3fc7tiboO_5OUidVfpBL7z-VVZq7eHlwx_hsDSh8AaTP-L5p-vVw6LZuU7VgswQ4wd075dyBvLtvtJ9N2mlbyrjtmRHFT2nVg8m2Cebu_aATkSAPh6_mPAH55qBZdmpDdEC_nYFdvnCepevihbVn_l9A93iRrRaSsVI1WnTNyAZe6gvRgnTnh3C4sTtdAK262mZJFXW9NoOrb0n2NcOmvtSmghPnF0yatGKZCVVWctGOf__FFPYDPye4HWgKtgK"/>
+</div>
+<button onclick="showHelp()" class="material-symbols-outlined text-slate-500 hover:bg-slate-50 p-2 rounded-full cursor-pointer active:scale-95 transition-transform">help</button>
+</div>
+</header>
 
 <!-- ===================== SELECTION VIEW ===================== -->
-<div id="selectionView" class="flex-1 flex flex-col items-center p-6 gap-6">
+<div id="selectionView" class="flex-1 flex flex-col p-4 pb-24 gap-6">
 
     <!-- Header -->
-    <div class="text-center pt-2">
-        <h1 class="text-2xl font-black text-slate-900 dark:text-slate-100">挑戰設定</h1>
+    <div class="pt-2">
+        <h1 class="text-slate-900 dark:text-slate-100 text-lg font-bold">挑戰設定</h1>
         <p class="text-sm text-slate-500 mt-1">選擇難度與題目類型後開始配對</p>
     </div>
 
-    <!-- Level Selection Status Display -->
-    <div class="flex gap-3 w-full">
-        <div class="flex-1 flex flex-col items-center p-3 rounded-xl border-2 border-primary bg-primary/5">
-            <span class="text-xs font-bold text-primary uppercase tracking-wider">Level</span>
-            <span id="displayLevel" class="text-xl font-extrabold text-slate-900 dark:text-slate-100">A1A2</span>
+    <!-- Difficulty -->
+    <section>
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-slate-900 dark:text-slate-100 font-bold text-lg">Difficulty</h3>
         </div>
-        <div class="flex-1 flex flex-col items-center p-3 rounded-xl border-2 border-secondary bg-secondary/5">
-            <span class="text-xs font-bold text-secondary uppercase tracking-wider">Category</span>
-            <span id="displayCategory" class="text-xl font-extrabold text-slate-900 dark:text-slate-100">Mixed</span>
+        <div class="grid grid-cols-2 gap-4">
+            <button onclick="selectLevel('A1A2', this)" id="level-A1A2"
+                class="level-btn bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl border border-blue-100 dark:border-blue-800 hover:border-primary transition-colors text-left active:scale-[0.98] selected-level">
+                <div class="bg-blue-500 text-white w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+                    <span class="material-symbols-outlined">school</span>
+                </div>
+                <h4 class="font-bold text-slate-900 dark:text-slate-100 text-sm">A1A2</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Elementary</p>
+            </button>
+            <button onclick="selectLevel('B1B2', this)" id="level-B1B2"
+                class="level-btn bg-amber-50 dark:bg-amber-900/20 p-4 rounded-xl border border-amber-100 dark:border-amber-800 hover:border-primary transition-colors text-left active:scale-[0.98]">
+                <div class="bg-amber-500 text-white w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+                    <span class="material-symbols-outlined">emoji_events</span>
+                </div>
+                <h4 class="font-bold text-slate-900 dark:text-slate-100 text-sm">B1B2</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Intermediate</p>
+            </button>
         </div>
-    </div>
+    </section>
 
-    <!-- Difficulty Selection -->
-    <div class="w-full bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
-        <p class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wider">難度選擇 Difficulty</p>
-        <div class="flex gap-2">
-            <button onclick="selectLevel('A1A2', this)"
-                class="level-btn flex-1 py-3 px-2 rounded-xl border-2 border-primary bg-primary/5 font-bold text-primary text-center text-sm transition-all">
-                A1A2<br><span class="text-[10px] font-medium opacity-70">Elementary</span>
+    <!-- Category -->
+    <section>
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-slate-900 dark:text-slate-100 font-bold text-lg">Category</h3>
+        </div>
+        <div class="grid grid-cols-3 gap-4">
+            <button onclick="selectCategory('vocabulary', this)" id="cat-vocabulary"
+                class="cat-btn bg-orange-50 dark:bg-orange-900/20 p-4 rounded-xl border border-orange-100 dark:border-orange-800 hover:border-primary transition-colors text-left active:scale-[0.98]">
+                <div class="bg-primary text-white w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+                    <span class="material-symbols-outlined">menu_book</span>
+                </div>
+                <h4 class="font-bold text-slate-900 dark:text-slate-100 text-sm">Vocab</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400">詞彙</p>
             </button>
-            <button onclick="selectLevel('B1B2', this)"
-                class="level-btn flex-1 py-3 px-2 rounded-xl border-2 border-slate-200 dark:border-slate-700 font-bold text-slate-600 dark:text-slate-400 text-center text-sm transition-all hover:border-primary/50">
-                B1B2<br><span class="text-[10px] font-medium opacity-70">Intermediate</span>
+            <button onclick="selectCategory('grammar', this)" id="cat-grammar"
+                class="cat-btn bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-xl border border-emerald-100 dark:border-emerald-800 hover:border-primary transition-colors text-left active:scale-[0.98]">
+                <div class="bg-emerald-500 text-white w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+                    <span class="material-symbols-outlined">spellcheck</span>
+                </div>
+                <h4 class="font-bold text-slate-900 dark:text-slate-100 text-sm">Grammar</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400">語法</p>
+            </button>
+            <button onclick="selectCategory('mixed', this)" id="cat-mixed"
+                class="cat-btn bg-purple-50 dark:bg-purple-900/20 p-4 rounded-xl border border-purple-100 dark:border-purple-800 hover:border-primary transition-colors text-left active:scale-[0.98] selected-cat">
+                <div class="bg-purple-500 text-white w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+                    <span class="material-symbols-outlined">shuffle</span>
+                </div>
+                <h4 class="font-bold text-slate-900 dark:text-slate-100 text-sm">Mixed</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400">混合</p>
             </button>
         </div>
-    </div>
+    </section>
 
-    <!-- Category Selection -->
-    <div class="w-full bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
-        <p class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wider">題目類型 Category</p>
-        <div class="grid grid-cols-3 gap-2">
-            <button onclick="selectCategory('vocabulary', this)"
-                class="cat-btn py-3 px-1 rounded-xl border-2 border-slate-200 dark:border-slate-700 font-bold text-slate-600 dark:text-slate-400 text-center text-xs transition-all hover:border-secondary/50 flex flex-col items-center gap-1">
-                <span class="material-symbols-outlined text-xl">menu_book</span>
-                Vocabulary
-            </button>
-            <button onclick="selectCategory('grammar', this)"
-                class="cat-btn py-3 px-1 rounded-xl border-2 border-slate-200 dark:border-slate-700 font-bold text-slate-600 dark:text-slate-400 text-center text-xs transition-all hover:border-secondary/50 flex flex-col items-center gap-1">
-                <span class="material-symbols-outlined text-xl">rule</span>
-                Grammar
-            </button>
-            <button onclick="selectCategory('mixed', this)"
-                class="cat-btn py-3 px-1 rounded-xl border-2 border-secondary bg-secondary/5 font-bold text-secondary text-center text-xs transition-all flex flex-col items-center gap-1">
-                <span class="material-symbols-outlined text-xl">shuffle</span>
-                Mixed
-            </button>
-        </div>
+    <!-- Start Button — 和介面.html 的 START GAME 完全相同 -->
+    <div class="px-4 py-2">
+        <button onclick="startMatchmaking()"
+            class="w-full flex items-center justify-center gap-3 bg-secondary hover:bg-secondary/90 text-white font-bold py-5 rounded-xl shadow-lg transition-transform active:scale-[0.98]">
+            <span class="material-symbols-outlined text-3xl">swords</span>
+            <div class="text-left">
+                <p class="text-lg leading-none">START GAME</p>
+                <p class="text-xs opacity-80 font-normal">Challenge the Mandarin Trivia</p>
+            </div>
+        </button>
     </div>
-
-    <!-- Start Button -->
-    <button onclick="startMatchmaking()"
-        class="w-full py-5 bg-primary text-white font-black text-lg rounded-2xl shadow-lg shadow-primary/30 hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-3 mt-2">
-        <span class="material-symbols-outlined text-2xl">swords</span>
-        開始配對 Start Battle
-    </button>
 
 </div>
+<style>
+    .selected-level { outline: 2px solid #ec5b13; }
+    .selected-cat   { outline: 2px solid #ec5b13; }
+</style>
 
 <!-- ===================== MATCHMAKING VIEW ===================== -->
 <div id="matchmakingView" class="hidden flex-1 flex flex-col items-center p-6 gap-6">
@@ -219,24 +244,24 @@
 </div>
 
 <!-- Bottom Navigation Bar -->
-<div class="flex gap-2 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pb-6 pt-3 sticky bottom-0">
-    <a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400" href="/">
-        <span class="material-symbols-outlined">home</span>
-        <p class="text-[10px] font-bold uppercase">Home</p>
-    </a>
-    <a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary" href="/lobby">
-        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">swords</span>
-        <p class="text-[10px] font-bold uppercase">Battle</p>
-    </a>
-    <a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400" href="#">
-        <span class="material-symbols-outlined">leaderboard</span>
-        <p class="text-[10px] font-bold uppercase">Rank</p>
-    </a>
-    <a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400" href="/settings">
-        <span class="material-symbols-outlined">person</span>
-        <p class="text-[10px] font-bold uppercase">Profile</p>
-    </a>
-</div>
+<nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto flex justify-around items-center px-2 h-20 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 shadow-[0_-2px_10px_rgba(0,0,0,0.05)] z-20">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-1 active:scale-90 transition-all duration-150" href="/">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-2xl px-4 py-1 active:scale-90 transition-all duration-150" href="/lobby">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">trophy</span>
+<span class="text-[10px] font-bold">Leagues</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-1 active:scale-90 transition-all duration-150" href="/friends">
+<span class="material-symbols-outlined">group</span>
+<span class="text-[10px] font-bold">Friends</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-1 active:scale-90 transition-all duration-150" href="/profile">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</a>
+</nav>
 </div>
 
 <script>
@@ -261,26 +286,14 @@
     // ── Selection helpers ──────────────────────────────
     function selectLevel(level, btn) {
         selectedLevel = level;
-        document.getElementById('displayLevel').textContent = level;
-        document.querySelectorAll('.level-btn').forEach(b => {
-            b.className = b.className
-                .replace('border-primary bg-primary/5 text-primary', '')
-                .replace('border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400', '');
-            b.classList.add('border-slate-200', 'dark:border-slate-700', 'text-slate-600', 'dark:text-slate-400');
-        });
-        btn.classList.remove('border-slate-200', 'dark:border-slate-700', 'text-slate-600', 'dark:text-slate-400');
-        btn.classList.add('border-primary', 'bg-primary/5', 'text-primary');
+        document.querySelectorAll('.level-btn').forEach(b => b.classList.remove('selected-level'));
+        btn.classList.add('selected-level');
     }
 
     function selectCategory(cat, btn) {
         selectedCategory = cat;
-        document.getElementById('displayCategory').textContent = categoryLabels[cat];
-        document.querySelectorAll('.cat-btn').forEach(b => {
-            b.classList.remove('border-secondary', 'bg-secondary/5', 'text-secondary');
-            b.classList.add('border-slate-200', 'dark:border-slate-700', 'text-slate-600', 'dark:text-slate-400');
-        });
-        btn.classList.remove('border-slate-200', 'dark:border-slate-700', 'text-slate-600', 'dark:text-slate-400');
-        btn.classList.add('border-secondary', 'bg-secondary/5', 'text-secondary');
+        document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('selected-cat'));
+        btn.classList.add('selected-cat');
     }
 
     // ── Matchmaking ────────────────────────────────────

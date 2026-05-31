@@ -25,6 +25,7 @@ flask_session/
 # OS
 .DS_Store
 Thumbs.db
+desktop.ini
 
 # IDE
 .vscode/

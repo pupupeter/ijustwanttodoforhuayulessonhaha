@@ -81,7 +81,18 @@
         .waveform-bar {
             @apply bg-primary rounded-full;
             width: 3px;
-            transition: height 0.3s ease;
+            transition: height 0.15s ease;
+        }
+        .waveform-bar.playing {
+            animation: wave 0.6s ease-in-out infinite alternate;
+        }
+        .waveform-bar.playing:nth-child(2n)   { animation-delay: 0.1s; }
+        .waveform-bar.playing:nth-child(3n)   { animation-delay: 0.2s; }
+        .waveform-bar.playing:nth-child(4n)   { animation-delay: 0.05s; }
+        .waveform-bar.playing:nth-child(5n)   { animation-delay: 0.15s; }
+        @keyframes wave {
+            0%   { transform: scaleY(0.4); }
+            100% { transform: scaleY(1.0); }
         }
     </style>
 <style>
@@ -90,6 +101,7 @@
     }
   </style>
   </head>
+<audio id="lis-audio" src="{{ audio_url or '' }}" preload="auto"></audio>
 <body class="bg-background font-body text-on-background min-h-screen flex flex-col">
 <header class="bg-white dark:bg-slate-950 text-orange-600 dark:text-orange-500 font-['Plus_Jakarta_Sans'] font-bold rounded-b-lg border-b border-slate-100 dark:border-slate-800 shadow-sm flex justify-between items-center px-4 h-16 w-full sticky top-0 z-50">
 <div class="flex items-center gap-3">
@@ -127,37 +139,47 @@
 </div>
 <p class="text-on-surface-variant text-sm font-medium">{{ quiz_type }}</p>
 </div>
-<div class="relative mb-10 overflow-hidden rounded-3xl bg-white shadow-lg p-6 group transition-all active:scale-[0.99] border-l-4 border-primary">
+<div class="relative mb-6 overflow-hidden rounded-3xl bg-white shadow-lg p-6 group transition-all active:scale-[0.99] border-l-4 border-primary">
 <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
 <div class="relative z-10 flex flex-col items-center">
-<div class="flex items-center justify-center w-20 h-20 bg-primary rounded-full shadow-lg shadow-primary/30 mb-6 cursor-pointer hover:scale-105 transition-transform active:scale-90">
-<span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<div id="play-btn" class="flex items-center justify-center w-20 h-20 bg-primary rounded-full shadow-lg shadow-primary/30 mb-4 cursor-pointer hover:scale-105 transition-transform active:scale-90">
+<span id="play-icon" class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
 </div>
-<div class="flex items-end justify-center gap-1 h-12 w-full px-4">
+<div class="flex items-end justify-center gap-1 h-10 w-full px-4 mb-4">
 <div class="waveform-bar h-4"></div>
 <div class="waveform-bar h-8"></div>
-<div class="waveform-bar h-12"></div>
-<div class="waveform-bar h-6"></div>
 <div class="waveform-bar h-10"></div>
-<div class="waveform-bar h-7"></div>
-<div class="waveform-bar h-11"></div>
-<div class="waveform-bar h-5"></div>
+<div class="waveform-bar h-6"></div>
 <div class="waveform-bar h-9"></div>
-<div class="waveform-bar h-12"></div>
-<div class="waveform-bar h-6"></div>
-<div class="waveform-bar h-10"></div>
 <div class="waveform-bar h-7"></div>
-<div class="waveform-bar h-11"></div>
+<div class="waveform-bar h-10"></div>
+<div class="waveform-bar h-5"></div>
+<div class="waveform-bar h-8"></div>
+<div class="waveform-bar h-10"></div>
+<div class="waveform-bar h-6"></div>
+<div class="waveform-bar h-9"></div>
+<div class="waveform-bar h-7"></div>
+<div class="waveform-bar h-10"></div>
 <div class="waveform-bar h-4"></div>
 <div class="waveform-bar h-8"></div>
-<div class="waveform-bar h-12"></div>
-<div class="waveform-bar h-6"></div>
 <div class="waveform-bar h-10"></div>
+<div class="waveform-bar h-6"></div>
+<div class="waveform-bar h-9"></div>
 <div class="waveform-bar h-7"></div>
 </div>
-<div class="mt-4 text-xs font-bold text-slate-400 tracking-widest">{{ question }}</div>
+<!-- Audio text (content being "played") -->
+<div class="bg-slate-50 rounded-xl px-4 py-3 w-full text-center">
+<p class="text-sm font-bold text-on-surface leading-relaxed">{{ question }}</p>
 </div>
 </div>
+</div>
+<!-- Comprehension question -->
+{% if lis_question %}
+<div class="mb-6 bg-white rounded-2xl px-5 py-4 border border-slate-100 shadow-sm">
+<p class="text-[10px] font-bold uppercase tracking-widest text-tertiary mb-1">題目</p>
+<p class="font-bold text-on-surface text-base">{{ lis_question }}</p>
+</div>
+{% endif %}
 <form action="/answer" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-4">
 {% for opt in options %}
 <button type="submit" name="answer" value="{{ opt }}" class="group flex items-center p-4 bg-white hover:bg-orange-50 border-2 border-transparent hover:border-primary/30 rounded-2xl shadow-sm transition-all active:scale-[0.97] text-left">
@@ -213,4 +235,50 @@
 <span class="text-xs font-semibold">Profile</span>
 </div>
 </div>
+<script>
+(function () {
+  const audio   = document.getElementById('lis-audio');
+  const btn     = document.getElementById('play-btn');
+  const icon    = document.getElementById('play-icon');
+  const bars    = document.querySelectorAll('.waveform-bar');
+
+  if (!audio || !audio.src || audio.src === window.location.href) {
+    // 沒有音頻來源時，按鈕顯示禁用狀態
+    btn.classList.add('opacity-50', 'cursor-not-allowed');
+    btn.title = '音頻載入失敗';
+    return;
+  }
+
+  function setPlaying(playing) {
+    icon.textContent = playing ? 'pause' : 'play_arrow';
+    bars.forEach(b => playing ? b.classList.add('playing') : b.classList.remove('playing'));
+  }
+
+  function setLoading(loading) {
+    icon.textContent = loading ? 'hourglass_top' : 'play_arrow';
+  }
+
+  // 事件：播放 / 暫停
+  audio.addEventListener('play',  () => setPlaying(true));
+  audio.addEventListener('pause', () => setPlaying(false));
+  audio.addEventListener('ended', () => setPlaying(false));
+  audio.addEventListener('waiting', () => setLoading(true));
+  audio.addEventListener('canplay', () => { if (!audio.paused) setPlaying(true); else setLoading(false); });
+
+  btn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play().catch(err => console.warn('Audio play error:', err));
+    } else {
+      audio.pause();
+    }
+  });
+
+  // 頁面載入後自動播放一次（讓學生立刻聽到）
+  window.addEventListener('load', () => {
+    audio.play().catch(() => {
+      // 瀏覽器 autoplay 政策阻擋時靜默失敗，等用戶點按鈕
+    });
+  });
+})();
+</script>
 </body></html>
